@@ -21,6 +21,7 @@ This is the summary of my book.
   * [Bowtie2でRNA-seqデータをトランスクリプトームへマッピングする](RNA-Seq/bowtie2_transcript.md)
   * [RNA-seq データからの rRNA除去](RNA-Seq/rrna.md)
   * [遺伝子発現量(FPKM)を計算する](RNA-Seq/cuffdiff.md)
+  * [eXpress で発現量を計算する](RNA-Seq/express.md)  
   * [発現が有意に異なる遺伝子を探す](RNA-Seq/cummeRbund.md)
 * ChIP-Seq
   * [Bowtie2でChIP-Seqデータをゲノムへマッピングする](ChIP-Seq/bowtie_chipseq.md)

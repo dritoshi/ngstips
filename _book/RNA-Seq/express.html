@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>ゲノムのリピート領域にマッピングされたリードを除く | Tips for NGS Data Analysis</title>
+        <title>eXpress で発現量を計算する | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../qc/samstat.html" />
+    <link rel="next" href="../RNA-Seq/cummeRbund.html" />
     
     
-    <link rel="prev" href="../qc/rmprimer_adopter.html" />
+    <link rel="prev" href="../RNA-Seq/cuffdiff.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="1.6" data-basepath=".." data-revision="1414567308783">
+    <div class="book"  data-level="2.5" data-basepath=".." data-revision="1414567308783">
     
 
 <div class="book-summary">
@@ -162,7 +162,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="1.6" data-path="qc/rmrepeat.html">
+        <li class="chapter " data-level="1.6" data-path="qc/rmrepeat.html">
             
                 
                     <a href="../qc/rmrepeat.html">
@@ -352,7 +352,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.5" data-path="RNA-Seq/express.html">
+        <li class="chapter active" data-level="2.5" data-path="RNA-Seq/express.html">
             
                 
                     <a href="../RNA-Seq/express.html">
@@ -1131,12 +1131,28 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_97">
+                    <section class="normal" id="section-gitbook_71">
                     
-                        <h1 id="">ゲノムのリピート領域にマッピングされたリードを除く</h1>
-<p>ゲノムには大量のリピート配列が含まれておりヒト、マウスのゲノムはその約半分がリピートに関連した領域である。シーケンスされたリードをこのような領域にはマッピングすることは、その位置を一意に決めることができないので、困難である。一般的には、複数箇所にマップされるリードを、重複領域にランダムに配置する方法(リード数に応じて確率的に配置する方法が良いとされている)と、データからリピート領域を除いて解析を進める方法の2通りがある。転写因子の ChIP-seq ではリピート領域にかなり高いピークが形成され、正規化などのノイズになるため、リピート領域を最初から解析に含めない方法が取られることがある。この場合は、マッピング後、peak calling の前にこのような処理を行うことになる。</p>
-<p>方法は、RNA-seq データから rRNA を除く方法と同じである。</p>
-
+                        <h1 id="express--rna-seq-">eXpress で RNA-seq データから発現量を計算する</h1>
+<p>トランスクリプートムを bowtie1 index にする。bowtie を利用して、その index file に fastq をマッピングし、eXpress で FPKM を計算する。</p>
+<h2 id="bowtie1-">bowtie1 を入れる</h2>
+<pre><code>$ wget &quot;http://downloads.sourceforge.net/project/bowtie-bio/bowtie/1.1.1/bowtie-1.1.1-linux-x86_64.zip
+$ unzip bowtie-1.1.1-linux-x86_64.zip
+$ sudo mv bowtie-1.1.1-linux-x86_64 /usr/local
+</code></pre><h2 id="">トランスクリプトームをダウンロード</h2>
+<pre><code>$ wget http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/refMrna.fa.gz
+$ gzip -d refMrna.fa.gz
+</code></pre><h2 id="">インデックスを作成する</h2>
+<pre><code>$ /usr/local/bowtie-1.1.1-linux-x86_64 --offrate 1 refMrna.fa refMrna
+</code></pre><h2 id="express-">eXpress をセットアップ</h2>
+<pre><code>$ wget http://bio.math.berkeley.edu/eXpress/downloads/express-1.5.1/express-1.5.1-linux_x86_64.tgz
+$ tar zxvf express-1.5.1-linux_x86_64.tgz
+$ sudo mv express-1.5.1-linux_x86_64 /usr/local
+</code></pre><h2 id="">トランスクリプトームへリードマッピングする</h2>
+<pre><code>$ bowtie -aS -X 800 --offrate 1 transcripts -1 reads_1.fastq -2 reads_2.fastq | samtools view -Sb - &gt; hits.bam
+</code></pre><h2 id="express-">eXpress を実行する</h2>
+<pre><code>$ /usr/local/express-1.5.1-linux_x86_64/express efMrna.fa hits.bam
+</code></pre>
                     
                     </section>
                 
@@ -1146,10 +1162,10 @@
         </div>
 
         
-        <a href="../qc/rmprimer_adopter.html" class="navigation navigation-prev " aria-label="Previous page: なぜアダプタやプライマー配列を除く必要があるのか"><i class="fa fa-angle-left"></i></a>
+        <a href="../RNA-Seq/cuffdiff.html" class="navigation navigation-prev " aria-label="Previous page: 遺伝子発現量(FPKM)を計算する"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../qc/samstat.html" class="navigation navigation-next " aria-label="Next page: FASTA/FASTQ/SAM/BAMの詳しいステータスを得る"><i class="fa fa-angle-right"></i></a>
+        <a href="../RNA-Seq/cummeRbund.html" class="navigation navigation-next " aria-label="Next page: 発現が有意に異なる遺伝子を探す"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

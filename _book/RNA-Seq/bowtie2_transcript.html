@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.2" data-basepath=".." data-revision="1410948344332">
+    <div class="book"  data-level="2.2" data-basepath=".." data-revision="1414567308783">
     
 
 <div class="book-summary">
@@ -352,13 +352,29 @@
         </li>
     
         
-        <li class="chapter " data-level="2.5" data-path="RNA-Seq/cummeRbund.html">
+        <li class="chapter " data-level="2.5" data-path="RNA-Seq/express.html">
+            
+                
+                    <a href="../RNA-Seq/express.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         eXpress で発現量を計算する
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="RNA-Seq/cummeRbund.html">
             
                 
                     <a href="../RNA-Seq/cummeRbund.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.6.</b>
                         
                          発現が有意に異なる遺伝子を探す
                     </a>
@@ -1115,7 +1131,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_890">
+                    <section class="normal" id="section-gitbook_68">
                     
                         <h1 id="bowtie2rna-seq">Bowtie2でRNA-seqデータをトランスクリプトームへマッピングする</h1>
 <p>RNA-Seq のデータをトランスクリプトームへマッピングする方法について述べる。RNA-Seqデータはスプライシング後のRNAをシーケンスするのが一般的である。そのためスプライシングされるイントロンとエクソンの境界にあるシーケンスリードは、ゲノムにはマッピングされない。そのためTopHatなどスプライスドアラインメントに対応したアルゴリズムを利用する必要がある。もうひとつの方法は、トランスクリプトームに対して、シーケンスリードをそのままマッピングすれば、この問題は考慮の必要がない。このデータは、トランスクリプトごとにマッピングされたリードを操作できるようになるので、トランスクリプトごとに、カウントやカバレッジを計算する際などには便利である。ただし、トランスクリプトームデータベースに含まれないトランスクリプトを考慮できない点に注意すること。</p>

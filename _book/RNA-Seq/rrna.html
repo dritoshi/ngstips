@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2.3" data-basepath=".." data-revision="1410948344332">
+    <div class="book"  data-level="2.3" data-basepath=".." data-revision="1414567308783">
     
 
 <div class="book-summary">
@@ -352,13 +352,29 @@
         </li>
     
         
-        <li class="chapter " data-level="2.5" data-path="RNA-Seq/cummeRbund.html">
+        <li class="chapter " data-level="2.5" data-path="RNA-Seq/express.html">
+            
+                
+                    <a href="../RNA-Seq/express.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         eXpress で発現量を計算する
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="RNA-Seq/cummeRbund.html">
             
                 
                     <a href="../RNA-Seq/cummeRbund.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.6.</b>
                         
                          発現が有意に異なる遺伝子を探す
                     </a>
@@ -1115,7 +1131,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_893">
+                    <section class="normal" id="section-gitbook_72">
                     
                         <h1 id="rna-seq--rrna">RNA-seq データからの rRNA除去</h1>
 <p>ここではリファレンスゲノムへのマッピングした bam file から、bedtools のなかの intersectBed を利用して、 rRNA 配列を除く方法を述べる。-abam は入力ファイル形式を、-b は除くべきゲノム領域を記載した bed file を指定する。ここでは rRNA 遺伝子が存在するゲノム領域の bed fileである。-v は -b で指定した領域に含まれないものだけ出力するという意味である。 grep -v を思い浮べると良いだろう。</p>
