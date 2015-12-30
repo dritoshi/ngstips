@@ -18,6 +18,7 @@ $ gzip -d refMrna.fa.gz
 ```
 $ /usr/local/bowtie-1.1.1-linux-x86_64 --offrate 1 refMrna.fa refMrna
 ```
+refMrna.ebwt のようなファイルがいくつかできる。
 
 ## eXpress をセットアップ
 ```
@@ -28,10 +29,11 @@ $ sudo mv express-1.5.1-linux_x86_64 /usr/local
 
 ## トランスクリプトームへリードマッピングする
 ```
-$ bowtie -aS -X 800 --offrate 1 transcripts -1 reads_1.fastq -2 reads_2.fastq | samtools view -Sb - > hits.bam
+$ bowtie -aS -X 800 --offrate 1 refMrna -1 reads_1.fastq -2 reads_2.fastq | samtools view -Sb - > hits.bam
 ```
 
 ## eXpress を実行する
 ```
-$ /usr/local/express-1.5.1-linux_x86_64/express efMrna.fa hits.bam
+$ /usr/local/express-1.5.1-linux_x86_64/express refMrna.fa hits.bam -o hit
 ```
+hit ディレクトリに結果を保存する。

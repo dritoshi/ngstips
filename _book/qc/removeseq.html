@@ -1,13 +1,16 @@
 <!DOCTYPE HTML>
-<html lang="en-US" >
+<html lang="en" >
     
     <head>
         
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>余分な配列の除去 | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="generator" content="GitBook 2.6.6">
+        
+        
         <meta name="HandheldFriendly" content="true"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,7 +18,23 @@
         <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
         <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
+    <link rel="stylesheet" href="../gitbook/style.css">
     
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
     
     
     <link rel="next" href="../qc/qualityscore.html" />
@@ -29,246 +48,239 @@
     <body>
         
         
-<link rel="stylesheet" href="../gitbook/style.css">
-
-
-        
-    <div class="book"  data-level="1.3" data-basepath=".." data-revision="1414567308783">
+    <div class="book"
+        data-level="1.3"
+        data-chapter-title="余分な配列の除去"
+        data-filepath="qc/removeseq.md"
+        data-basepath=".."
+        data-revision="Thu Dec 31 2015 01:21:12 GMT+0900 (JST)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
-    <div class="book-search">
-        <input type="text" placeholder="Type to search" class="form-control" />
-    </div>
-    <ul class="summary">
-        
-    	
-    	
-    	
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://customlink.com" target="blank" class="custom-link">Custom link name</a>
+                </li>
+            
+            
 
-        
+            
+            <li class="divider"></li>
+            
 
-        
+            
     
-        
         <li class="chapter " data-level="0" data-path="index.html">
             
                 
                     <a href="../index.html">
+                
                         <i class="fa fa-check"></i>
                         
-                         はじめに
+                        はじめに
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1" data-path="qc/introduction.html">
             
                 
                     <a href="../qc/introduction.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
                         
-                         品質管理・前処理
+                        品質管理・前処理
                     </a>
-                
             
             
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="1.1" data-path="qc/fastq.html">
             
                 
                     <a href="../qc/fastq.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
                         
-                         FASTQ format
+                        FASTQ format
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.2" data-path="qc/fastqc.html">
             
                 
                     <a href="../qc/fastqc.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.2.</b>
                         
-                         FASTQCによるシーケンス実験の品質管理
+                        FASTQCによるシーケンス実験の品質管理
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter active" data-level="1.3" data-path="qc/removeseq.html">
             
                 
                     <a href="../qc/removeseq.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.3.</b>
                         
-                         余分な配列の除去
+                        余分な配列の除去
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.4" data-path="qc/qualityscore.html">
             
                 
                     <a href="../qc/qualityscore.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.4.</b>
                         
-                         シーケンスクオリティが低いのリードを除く
+                        シーケンスクオリティが低いのリードを除く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.5" data-path="qc/rmprimer_adopter.html">
             
                 
                     <a href="../qc/rmprimer_adopter.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.5.</b>
                         
-                         なぜアダプタやプライマー配列を除く必要があるのか
+                        なぜアダプタやプライマー配列を除く必要があるのか
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.6" data-path="qc/rmrepeat.html">
             
                 
                     <a href="../qc/rmrepeat.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.6.</b>
                         
-                         ゲノムのリピート領域にマッピングされたリードを除く
+                        ゲノムのリピート領域にマッピングされたリードを除く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.7" data-path="qc/samstat.html">
             
                 
                     <a href="../qc/samstat.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.7.</b>
                         
-                         FASTA/FASTQ/SAM/BAMの詳しいステータスを得る
+                        FASTA/FASTQ/SAM/BAMの詳しいステータスを得る
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.8" data-path="qc/randomsampling.html">
             
                 
                     <a href="../qc/randomsampling.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.8.</b>
                         
-                         FASTA/BAMからランダムにリードを取り出す
+                        FASTA/BAMからランダムにリードを取り出す
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.9" data-path="qc/coverage.html">
             
                 
                     <a href="../qc/coverage.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.9.</b>
                         
-                         シーケンスリードのカバレッジを計算する
+                        シーケンスリードのカバレッジを計算する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.10" data-path="qc/gc.html">
             
                 
                     <a href="../qc/gc.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.10.</b>
                         
-                         DNA配列のGC%を計算する
+                        DNA配列のGC%を計算する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.11" data-path="qc/liftover.html">
             
                 
                     <a href="../qc/liftover.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.11.</b>
                         
-                         異なるバージョンのゲノム座標を変換する: liftover
+                        異なるバージョンのゲノム座標を変換する: liftover
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="1.12" data-path="qc/liftover_org.html">
             
                 
                     <a href="../qc/liftover_org.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>1.12.</b>
                         
-                         異なる生物間のゲノム座標を変換する: liftover
+                        異なる生物間のゲノム座標を変換する: liftover
                     </a>
-                
             
             
         </li>
@@ -278,7 +290,6 @@
             
         </li>
     
-        
         <li class="chapter " data-level="2" >
             
             <span><b>2.</b> RNA-Seq</span>
@@ -287,98 +298,92 @@
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="2.1" data-path="RNA-Seq/tophat.html">
             
                 
                     <a href="../RNA-Seq/tophat.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.1.</b>
                         
-                         TopHatでRNA-seq のデータをリファレンスゲノムへマッピングする
+                        TopHatでRNA-seq のデータをリファレンスゲノムへマッピングする
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="2.2" data-path="RNA-Seq/bowtie2_transcript.html">
             
                 
                     <a href="../RNA-Seq/bowtie2_transcript.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.2.</b>
                         
-                         Bowtie2でRNA-seqデータをトランスクリプトームへマッピングする
+                        Bowtie2でRNA-seqデータをトランスクリプトームへマッピングする
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="2.3" data-path="RNA-Seq/rrna.html">
             
                 
                     <a href="../RNA-Seq/rrna.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.3.</b>
                         
-                         RNA-seq データからの rRNA除去
+                        RNA-seq データからの rRNA除去
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="2.4" data-path="RNA-Seq/cuffdiff.html">
             
                 
                     <a href="../RNA-Seq/cuffdiff.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.4.</b>
                         
-                         遺伝子発現量(FPKM)を計算する
+                        遺伝子発現量(FPKM)を計算する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="2.5" data-path="RNA-Seq/express.html">
             
                 
                     <a href="../RNA-Seq/express.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.5.</b>
                         
-                         eXpress で発現量を計算する
+                        eXpress で発現量を計算する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="2.6" data-path="RNA-Seq/cummeRbund.html">
             
                 
                     <a href="../RNA-Seq/cummeRbund.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>2.6.</b>
                         
-                         発現が有意に異なる遺伝子を探す
+                        発現が有意に異なる遺伝子を探す
                     </a>
-                
             
             
         </li>
@@ -388,7 +393,6 @@
             
         </li>
     
-        
         <li class="chapter " data-level="3" >
             
             <span><b>3.</b> ChIP-Seq</span>
@@ -397,258 +401,226 @@
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="3.1" data-path="ChIP-Seq/bowtie_chipseq.html">
             
                 
                     <a href="../ChIP-Seq/bowtie_chipseq.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.</b>
                         
-                         Bowtie2でChIP-Seqデータをゲノムへマッピングする
+                        Bowtie2でChIP-Seqデータをゲノムへマッピングする
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.2" data-path="ChIP-Seq/macs2.html">
             
                 
                     <a href="../ChIP-Seq/macs2.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.2.</b>
                         
-                         MACS2による結合サイトの予測
+                        MACS2による結合サイトの予測
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.3" data-path="ChIP-Seq/gps.html">
             
                 
                     <a href="../ChIP-Seq/gps.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.3.</b>
                         
-                         GPSによる結合サイトの予測
+                        GPSによる結合サイトの予測
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.4" data-path="ChIP-Seq/geneasign.html">
             
-                
-                    <a href="../ChIP-Seq/geneasign.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.4.</b>
-                        
-                         結合領域を近傍の遺伝子に割り当てる
-                    </a>
-                
+            <span><b>3.4.</b> 結合領域を近傍の遺伝子に割り当てる</span>
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.5" data-path="ChIP-Seq/position.html">
             
-                
-                    <a href="../ChIP-Seq/position.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>3.5.</b>
-                        
-                         ピークがゲノムのどのような場所に存在しているのかを円グラフにする
-                    </a>
-                
+            <span><b>3.5.</b> ピークがゲノムのどのような場所に存在しているのかを円グラフにする</span>
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.6" data-path="ChIP-Seq/twochipseq.html">
             
                 
                     <a href="../ChIP-Seq/twochipseq.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.6.</b>
                         
-                         2つのTF ChIP-seq の共通結合領域を探す
+                        2つのTF ChIP-seq の共通結合領域を探す
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.7" data-path="ChIP-Seq/chipgo.html">
             
                 
                     <a href="../ChIP-Seq/chipgo.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.7.</b>
                         
-                         Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる
+                        Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.8" data-path="ChIP-Seq/peakseq.html">
             
                 
                     <a href="../ChIP-Seq/peakseq.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.8.</b>
                         
-                         ピーク内のゲノム配列をFASTA形式で得る
+                        ピーク内のゲノム配列をFASTA形式で得る
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.9" data-path="ChIP-Seq/chipmotif.html">
             
                 
                     <a href="../ChIP-Seq/chipmotif.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.9.</b>
                         
-                         ピーク内に頻出するDNAモチーフ配列を発見する
+                        ピーク内に頻出するDNAモチーフ配列を発見する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.10" data-path="ChIP-Seq/seqlog.html">
             
                 
                     <a href="../ChIP-Seq/seqlog.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.10.</b>
                         
-                         Position weight matrix から Sequence Logo を描く
+                        Position weight matrix から Sequence Logo を描く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.11" data-path="ChIP-Seq/motifsearch.html">
             
                 
                     <a href="../ChIP-Seq/motifsearch.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.11.</b>
                         
-                         Position weight matrix を既知モチーフデータベースに対して検索する
+                        Position weight matrix を既知モチーフデータベースに対して検索する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.12" data-path="ChIP-Seq/pwmsearch.html">
             
                 
                     <a href="../ChIP-Seq/pwmsearch.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.12.</b>
                         
-                         ピーク内の配列のなかから既知のDNAモチーフ配列を発見する
+                        ピーク内の配列のなかから既知のDNAモチーフ配列を発見する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.13" data-path="ChIP-Seq/summitdist.html">
             
                 
                     <a href="../ChIP-Seq/summitdist.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.13.</b>
                         
-                         summit からのモチーフまでの距離分布を描く
+                        summit からのモチーフまでの距離分布を描く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.14" data-path="ChIP-Seq/motifdist.html">
             
                 
                     <a href="../ChIP-Seq/motifdist.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.14.</b>
                         
-                         モチーフ間距離分布を描く
+                        モチーフ間距離分布を描く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.15" data-path="ChIP-Seq/pwm_jaspar.html">
             
                 
                     <a href="../ChIP-Seq/pwm_jaspar.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.15.</b>
                         
-                         既知のモチーフ配列/PWMのデータを得る: JASPAR
+                        既知のモチーフ配列/PWMのデータを得る: JASPAR
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="3.16" data-path="ChIP-Seq/deeptools.html">
             
                 
                     <a href="../ChIP-Seq/deeptools.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>3.16.</b>
                         
-                         deepToolsのセットアップ
+                        deepToolsのセットアップ
                     </a>
-                
             
             
         </li>
@@ -658,107 +630,100 @@
             
         </li>
     
-        
         <li class="chapter " data-level="4" >
             
-            <span><b>4.</b> Visualization  </span>
+            <span><b>4.</b> Visualization</span>
             
             
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="4.1" data-path="vis/genomegraphs.html">
             
                 
                     <a href="../vis/genomegraphs.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>4.1.</b>
                         
-                         Rで遺伝子構造を描く
+                        Rで遺伝子構造を描く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="4.2" data-path="vis/orenogb2.html">
             
                 
                     <a href="../vis/orenogb2.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>4.2.</b>
                         
-                         orenogb2 を使って、複数の bam を可視化する
+                        orenogb2 を使って、複数の bam を可視化する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="4.3" data-path="vis/rmagentagreen.html">
             
                 
                     <a href="../vis/rmagentagreen.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>4.3.</b>
                         
-                         Rでマゼンタ-黒-緑になるバリアフリーなカラーパレットを生成する
+                        Rでマゼンタ-黒-緑になるバリアフリーなカラーパレットを生成する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="4.4" data-path="vis/rsorttable.html">
             
                 
                     <a href="../vis/rsorttable.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>4.4.</b>
                         
-                         R でソートできるテーブルを作成する
+                        R でソートできるテーブルを作成する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="4.5" data-path="vis/ranimation.html">
             
                 
                     <a href="../vis/ranimation.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>4.5.</b>
                         
-                         R でアニメーションするグラフを描く
+                        R でアニメーションするグラフを描く
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="4.6" data-path="vis/familytree.html">
             
                 
                     <a href="../vis/familytree.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>4.6.</b>
                         
-                         R で家系図を書く
+                        R で家系図を書く
                     </a>
-                
             
             
         </li>
@@ -768,72 +733,67 @@
             
         </li>
     
-        
         <li class="chapter " data-level="5" data-path="etc/introduction.html">
             
                 
                     <a href="../etc/introduction.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.</b>
                         
-                         その他
+                        その他
                     </a>
-                
             
             
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="5.1" data-path="etc/ngsinfo.html">
             
                 
                     <a href="../etc/ngsinfo.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.1.</b>
                         
-                         NGSの情報の集めかた
+                        NGSの情報の集めかた
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.2" data-path="etc/hpc.html">
             
                 
                     <a href="../etc/hpc.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.2.</b>
                         
-                         大量の計算を高速化するには
+                        大量の計算を高速化するには
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.3" data-path="etc/sqlite.html">
             
                 
                     <a href="../etc/sqlite.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.3.</b>
                         
-                         バイオインフォマティクス解析のためのSQLite入門
+                        バイオインフォマティクス解析のためのSQLite入門
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.4" >
             
             <span><b>5.4.</b> R/Bioconductor</span>
@@ -842,98 +802,92 @@
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="5.4.1" data-path="etc/biostrings.html">
             
                 
                     <a href="../etc/biostrings.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.4.1.</b>
                         
-                         DNA配列をRで操作する
+                        DNA配列をRで操作する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.4.2" data-path="etc/genesearchr.html">
             
                 
                     <a href="../etc/genesearchr.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.4.2.</b>
                         
-                         Rから Refseq や UniProt-KBの情報を高速に検索する
+                        Rから Refseq や UniProt-KBの情報を高速に検索する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.4.3" data-path="etc/idconv.html">
             
                 
                     <a href="../etc/idconv.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.4.3.</b>
                         
-                         R で EnsEMBL Gene ID を NCBI Entrez Gene ID へ変換する
+                        R で EnsEMBL Gene ID を NCBI Entrez Gene ID へ変換する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.4.4" data-path="etc/biocjp.html">
             
                 
                     <a href="../etc/biocjp.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.4.4.</b>
                         
-                         Bioconductor 日本ミラーを利用する
+                        Bioconductor 日本ミラーを利用する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.4.5" data-path="etc/biocsearch.html">
             
                 
                     <a href="../etc/biocsearch.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.4.5.</b>
                         
-                         Bioconductor のソースコードを検索する
+                        Bioconductor のソースコードを検索する
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.4.6" data-path="etc/biocdevelonaws.html">
             
                 
                     <a href="../etc/biocdevelonaws.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.4.6.</b>
                         
-                         Vagrant を使って Bioconductor Devel の解析・開発環境をAWSに構築する
+                        Vagrant を使って Bioconductor Devel の解析・開発環境をAWSに構築する
                     </a>
-                
             
             
         </li>
@@ -943,43 +897,40 @@
             
         </li>
     
-        
         <li class="chapter " data-level="5.5" >
             
-            <span><b>5.5.</b> [Python環境の構築]    </span>
+            <span><b>5.5.</b> [Python環境の構築]</span>
             
             
             <ul class="articles">
                 
     
-        
         <li class="chapter " data-level="5.5.1" data-path="etc/scipy.html">
             
                 
                     <a href="../etc/scipy.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.5.1.</b>
                         
-                         SciPyをセットアップする
+                        SciPyをセットアップする
                     </a>
-                
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.5.2" data-path="etc/matplotlib.html">
             
                 
                     <a href="../etc/matplotlib.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.5.2.</b>
                         
-                         matplotlibをセットアップする
+                        matplotlibをセットアップする
                     </a>
-                
             
             
         </li>
@@ -989,7 +940,6 @@
             
         </li>
     
-        
         <li class="chapter " data-level="5.6" >
             
             <span><b>5.6.</b> FPKMとは</span>
@@ -997,7 +947,6 @@
             
         </li>
     
-        
         <li class="chapter " data-level="5.7" >
             
             <span><b>5.7.</b> ID変換: org.Mm.eg.db</span>
@@ -1005,7 +954,6 @@
             
         </li>
     
-        
         <li class="chapter " data-level="5.8" >
             
             <span><b>5.8.</b> EMBOSS</span>
@@ -1013,26 +961,24 @@
             
         </li>
     
-        
         <li class="chapter " data-level="5.9" >
             
-            <span><b>5.9.</b> Sun Grid Enging による分散計算 (SGEのオプションなど)    </span>
+            <span><b>5.9.</b> Sun Grid Enging による分散計算 (SGEのオプションなど)</span>
             
             
         </li>
     
-        
         <li class="chapter " data-level="5.10" data-path="etc/writingenv.html">
             
                 
                     <a href="../etc/writingenv.html">
+                
                         <i class="fa fa-check"></i>
                         
                             <b>5.10.</b>
                         
-                         執筆環境
+                        執筆環境
                     </a>
-                
             
             
         </li>
@@ -1044,80 +990,22 @@
     
 
 
-        
-        <li class="divider"></li>
-        <li>
-            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
-        </li>
-        
-    </ul>
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
 </div>
 
     <div class="book-body">
         <div class="body-inner">
-            <div class="book-header">
+            <div class="book-header" role="navigation">
     <!-- Actions Left -->
-    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
-    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
-    
-    <div id="font-settings-wrapper" class="dropdown pull-left">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
-        </a>
-        <div class="dropdown-menu font-settings">
-    <div class="dropdown-caret">
-        <span class="caret-outer"></span>
-        <span class="caret-inner"></span>
-    </div>
-
-    <div class="buttons">
-        <button type="button" id="reduce-font-size" class="button size-2">A</button>
-        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
-    </div>
-
-    <div class="buttons font-family-list">
-        <button type="button" data-font="0" class="button">Serif</button>
-        <button type="button" data-font="1" class="button">Sans</button>
-    </div>
-
-    <div class="buttons color-theme-list">
-        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
-        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
-        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Actions Right -->
-    
-    <div class="dropdown pull-right">
-        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
-        </a>
-        <div class="dropdown-menu font-settings dropdown-left">
-            <div class="dropdown-caret">
-                <span class="caret-outer"></span>
-                <span class="caret-inner"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" data-sharing="twitter" class="button">Twitter</button>
-                <button type="button" data-sharing="google-plus" class="button">Google</button>
-                <button type="button" data-sharing="facebook" class="button">Facebook</button>
-                <button type="button" data-sharing="weibo" class="button">Weibo</button>
-                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
-            </div>
-        </div>
-    </div>
-    
-
-    
-    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
-    
-    
-    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
-    
     
 
     <!-- Title -->
@@ -1127,35 +1015,35 @@
     </h1>
 </div>
 
-            <div class="page-wrapper" tabindex="-1">
+            <div class="page-wrapper" tabindex="-1" role="main">
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_95">
+                    <section class="normal" id="section-">
                     
-                        <h1 id="-fastx_toolkit-fastx_clipper">アダプター配列除去 FASTX_Toolkit fastx_clipper</h1>
-<p>short-read な FASTQ/A をいろいろいぢるツール群である FASTX_Toolkit に含まれるコマンドのひとつである fastx_clipper。(→トリムしたい場所が決まっている場合は fastx_trimmer を使う)。後に紹介する Galaxy に組み込み済みである。ちなみにそれぞれのコマンドの動作は Galaxy 内の解説にある図を見るのが良い。</p>
-<p>インストール:
-まず、<a href="http://hannonlab.cshl.edu/fastx_toolkit/download.html" target="_blank">http://hannonlab.cshl.edu/fastx_toolkit/download.html</a> からpre-compiled binary 版を落して、/usr/local/bin などに入れる PATH を通す。本体とは別に実行に必要とされるプログラムは、libgtextutils-0.6, PerlIO::gzip, GD::Graph::bars, gnuplot version 4.2 or newer であるので、事前に入れておく。-l でリードの最小サイズ、-M で一致する最小の長さを指定する。illumina CASAVA 1.8 以降の FASTQ や Sanger FASTQ には -Q 33 を指定する。それ以前で illumina 1.3 以降の FASTQ の場合は、-Q 64 を指定すること。トリムした配列だけ出力するには -C を、trim されなかった配列を出力するには、-c を指定する。なにも指定しなければ、両方が表示される。</p>
-<p>使いかた:</p>
+                        <h1 id="&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x9664;&#x53BB;-fastxtoolkit-fastxclipper">&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x9664;&#x53BB; FASTX_Toolkit fastx_clipper</h1>
+<p>short-read &#x306A; FASTQ/A &#x3092;&#x3044;&#x308D;&#x3044;&#x308D;&#x3044;&#x3062;&#x308B;&#x30C4;&#x30FC;&#x30EB;&#x7FA4;&#x3067;&#x3042;&#x308B; FASTX_Toolkit &#x306B;&#x542B;&#x307E;&#x308C;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x3072;&#x3068;&#x3064;&#x3067;&#x3042;&#x308B; fastx_clipper&#x3002;(&#x2192;&#x30C8;&#x30EA;&#x30E0;&#x3057;&#x305F;&#x3044;&#x5834;&#x6240;&#x304C;&#x6C7A;&#x307E;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F; fastx_trimmer &#x3092;&#x4F7F;&#x3046;)&#x3002;&#x5F8C;&#x306B;&#x7D39;&#x4ECB;&#x3059;&#x308B; Galaxy &#x306B;&#x7D44;&#x307F;&#x8FBC;&#x307F;&#x6E08;&#x307F;&#x3067;&#x3042;&#x308B;&#x3002;&#x3061;&#x306A;&#x307F;&#x306B;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x52D5;&#x4F5C;&#x306F; Galaxy &#x5185;&#x306E;&#x89E3;&#x8AAC;&#x306B;&#x3042;&#x308B;&#x56F3;&#x3092;&#x898B;&#x308B;&#x306E;&#x304C;&#x826F;&#x3044;&#x3002;</p>
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;:
+&#x307E;&#x305A;&#x3001;<a href="http://hannonlab.cshl.edu/fastx_toolkit/download.html" target="_blank">http://hannonlab.cshl.edu/fastx_toolkit/download.html</a> &#x304B;&#x3089;pre-compiled binary &#x7248;&#x3092;&#x843D;&#x3057;&#x3066;&#x3001;/usr/local/bin &#x306A;&#x3069;&#x306B;&#x5165;&#x308C;&#x308B; PATH &#x3092;&#x901A;&#x3059;&#x3002;&#x672C;&#x4F53;&#x3068;&#x306F;&#x5225;&#x306B;&#x5B9F;&#x884C;&#x306B;&#x5FC5;&#x8981;&#x3068;&#x3055;&#x308C;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306F;&#x3001;libgtextutils-0.6, PerlIO::gzip, GD::Graph::bars, gnuplot version 4.2 or newer &#x3067;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x4E8B;&#x524D;&#x306B;&#x5165;&#x308C;&#x3066;&#x304A;&#x304F;&#x3002;-l &#x3067;&#x30EA;&#x30FC;&#x30C9;&#x306E;&#x6700;&#x5C0F;&#x30B5;&#x30A4;&#x30BA;&#x3001;-M &#x3067;&#x4E00;&#x81F4;&#x3059;&#x308B;&#x6700;&#x5C0F;&#x306E;&#x9577;&#x3055;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;illumina CASAVA 1.8 &#x4EE5;&#x964D;&#x306E; FASTQ &#x3084; Sanger FASTQ &#x306B;&#x306F; -Q 33 &#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;&#x305D;&#x308C;&#x4EE5;&#x524D;&#x3067; illumina 1.3 &#x4EE5;&#x964D;&#x306E; FASTQ &#x306E;&#x5834;&#x5408;&#x306F;&#x3001;-Q 64 &#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3002;&#x30C8;&#x30EA;&#x30E0;&#x3057;&#x305F;&#x914D;&#x5217;&#x3060;&#x3051;&#x51FA;&#x529B;&#x3059;&#x308B;&#x306B;&#x306F; -C &#x3092;&#x3001;trim &#x3055;&#x308C;&#x306A;&#x304B;&#x3063;&#x305F;&#x914D;&#x5217;&#x3092;&#x51FA;&#x529B;&#x3059;&#x308B;&#x306B;&#x306F;&#x3001;-c &#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;&#x306A;&#x306B;&#x3082;&#x6307;&#x5B9A;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x4E21;&#x65B9;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x3002;</p>
+<p>&#x4F7F;&#x3044;&#x304B;&#x305F;:</p>
 <pre><code>$ fastx_clipper -l 18 -M 12 -Q 33 -v -i input.fastq -a ACACTCTTTCCCTACACGACGCTGTTCCATCT -o output.fastq &gt; input.fastq.log
-</code></pre><h1 id="-tagdust">アダプター除去 TagDust</h1>
-<p>概要
-理研OSCで開発されたシーケンスアダプター配列除去ソフト。入出力形式は fastq/a が使える。アダプター配列を multi fasta 形式で入力できるのが地味に便利である。なぜなら複数のアダプタ/プライマーを1回の実行で除去できるためである。これに対応しているものがなかなかない。アダプター/プライマー配列の検索には Muth–Manber algorithm (Approximate multiple string search) を利用している。FDRを調節することで除去の強さを指定できる。ライセンスはGPL3</p>
-<p>インストール:</p>
+</code></pre><h1 id="&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x9664;&#x53BB;-tagdust">&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x9664;&#x53BB; TagDust</h1>
+<p>&#x6982;&#x8981;
+&#x7406;&#x7814;OSC&#x3067;&#x958B;&#x767A;&#x3055;&#x308C;&#x305F;&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x9664;&#x53BB;&#x30BD;&#x30D5;&#x30C8;&#x3002;&#x5165;&#x51FA;&#x529B;&#x5F62;&#x5F0F;&#x306F; fastq/a &#x304C;&#x4F7F;&#x3048;&#x308B;&#x3002;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x3092; multi fasta &#x5F62;&#x5F0F;&#x3067;&#x5165;&#x529B;&#x3067;&#x304D;&#x308B;&#x306E;&#x304C;&#x5730;&#x5473;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3042;&#x308B;&#x3002;&#x306A;&#x305C;&#x306A;&#x3089;&#x8907;&#x6570;&#x306E;&#x30A2;&#x30C0;&#x30D7;&#x30BF;/&#x30D7;&#x30E9;&#x30A4;&#x30DE;&#x30FC;&#x3092;1&#x56DE;&#x306E;&#x5B9F;&#x884C;&#x3067;&#x9664;&#x53BB;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;&#x3067;&#x3042;&#x308B;&#x3002;&#x3053;&#x308C;&#x306B;&#x5BFE;&#x5FDC;&#x3057;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x304C;&#x306A;&#x304B;&#x306A;&#x304B;&#x306A;&#x3044;&#x3002;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;/&#x30D7;&#x30E9;&#x30A4;&#x30DE;&#x30FC;&#x914D;&#x5217;&#x306E;&#x691C;&#x7D22;&#x306B;&#x306F; Muth&#x2013;Manber algorithm (Approximate multiple string search) &#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;FDR&#x3092;&#x8ABF;&#x7BC0;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x9664;&#x53BB;&#x306E;&#x5F37;&#x3055;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x3002;&#x30E9;&#x30A4;&#x30BB;&#x30F3;&#x30B9;&#x306F;GPL3</p>
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;:</p>
 <pre><code>$ curl -O http://genome.gsc.riken.jp/osc/english/software/src/tagdust.tgztar zxvf tagdust.tgz
 $ cd tagdust/
 $ make
 $ sudo make install
 $ rehash
-</code></pre><p>使いかた:</p>
+</code></pre><p>&#x4F7F;&#x3044;&#x304B;&#x305F;:</p>
 <pre><code>$ tagdust adapter.fasta input.fastq -fdr 0.05 -o output.clean.fastq -a output.artifactual.fastq
-</code></pre><p>-fdr は除去の強さを調節する。-o にはアダプタ配列を除いたあとの fastq, -a には除かれた側の配列が記載された fastq を指定する。</p>
-<p>リファレンス
+</code></pre><p>-fdr &#x306F;&#x9664;&#x53BB;&#x306E;&#x5F37;&#x3055;&#x3092;&#x8ABF;&#x7BC0;&#x3059;&#x308B;&#x3002;-o &#x306B;&#x306F;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x914D;&#x5217;&#x3092;&#x9664;&#x3044;&#x305F;&#x3042;&#x3068;&#x306E; fastq, -a &#x306B;&#x306F;&#x9664;&#x304B;&#x308C;&#x305F;&#x5074;&#x306E;&#x914D;&#x5217;&#x304C;&#x8A18;&#x8F09;&#x3055;&#x308C;&#x305F; fastq &#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;
 <a href="http://bioinformatics.oxfordjournals.org/content/25/21/2839.full" target="_blank">http://bioinformatics.oxfordjournals.org/content/25/21/2839.full</a></p>
-<p>アダプター配列のトリミングする Trimmomatic (Paired-end対応)
-概要: paired-end に対応したアダプター配列をトリムするツール。illumina HiSeq は Paired-end の FASTQ は対となる2枚のファイルになっている。大抵の場合は、対となるペアが同じ行に記載されているが、アダプターの除去などの際にリードが除かれると、その順序が一致しなくなる。ツールによっては、IDではなく、出現順序でペアを認識している場合もある。Trimmomatic はこのようなことが起こらないよう、一対のリードに対してアダプターのトリムする、Paired-end mode が用意されている。</p>
-<p>使いかた:</p>
+<p>&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x306E;&#x30C8;&#x30EA;&#x30DF;&#x30F3;&#x30B0;&#x3059;&#x308B; Trimmomatic (Paired-end&#x5BFE;&#x5FDC;)
+&#x6982;&#x8981;: paired-end &#x306B;&#x5BFE;&#x5FDC;&#x3057;&#x305F;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x3092;&#x30C8;&#x30EA;&#x30E0;&#x3059;&#x308B;&#x30C4;&#x30FC;&#x30EB;&#x3002;illumina HiSeq &#x306F; Paired-end &#x306E; FASTQ &#x306F;&#x5BFE;&#x3068;&#x306A;&#x308B;2&#x679A;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3002;&#x5927;&#x62B5;&#x306E;&#x5834;&#x5408;&#x306F;&#x3001;&#x5BFE;&#x3068;&#x306A;&#x308B;&#x30DA;&#x30A2;&#x304C;&#x540C;&#x3058;&#x884C;&#x306B;&#x8A18;&#x8F09;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304C;&#x3001;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x306E;&#x9664;&#x53BB;&#x306A;&#x3069;&#x306E;&#x969B;&#x306B;&#x30EA;&#x30FC;&#x30C9;&#x304C;&#x9664;&#x304B;&#x308C;&#x308B;&#x3068;&#x3001;&#x305D;&#x306E;&#x9806;&#x5E8F;&#x304C;&#x4E00;&#x81F4;&#x3057;&#x306A;&#x304F;&#x306A;&#x308B;&#x3002;&#x30C4;&#x30FC;&#x30EB;&#x306B;&#x3088;&#x3063;&#x3066;&#x306F;&#x3001;ID&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x51FA;&#x73FE;&#x9806;&#x5E8F;&#x3067;&#x30DA;&#x30A2;&#x3092;&#x8A8D;&#x8B58;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x3082;&#x3042;&#x308B;&#x3002;Trimmomatic &#x306F;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x304C;&#x8D77;&#x3053;&#x3089;&#x306A;&#x3044;&#x3088;&#x3046;&#x3001;&#x4E00;&#x5BFE;&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x306E;&#x30C8;&#x30EA;&#x30E0;&#x3059;&#x308B;&#x3001;Paired-end mode &#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+<p>&#x4F7F;&#x3044;&#x304B;&#x305F;:</p>
 <pre><code>$ java -classpath /opt/Trimmomatic/trimmomatic-0.20.jar 
        org.usadellab.trimmomatic.TrimmomaticPE -threads 4 -phred33 -trimlog test.log
        input/fastq/ES-01_1.fastq input/fastq/ES-01_2.fastq
@@ -1163,14 +1051,14 @@ $ rehash
        input/fastq/ES-01_2.trim.fastq input/fastq/ES-01_2.unpaired.fastq
        ILLUMINACLIP:common_data/data/tagdust/solexa_paired_end_primers.fa:2:40:15 
        LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
-</code></pre><p>adapter 配列の除去を行う。adapter 配列は、common_data/data/tagdust/solexa_paired_end_primers.fa にFASTA形式で記載する。2塩基のmismatch を許してアダプタ配列を検索する。リード先頭の quality &lt; 3 か、N を持つ「配列」を除く。リード末端の  quality &lt; 3 か、N を持つ「配列」を除く。4塩基ずつ配列をずらしながら quality の平均を計算し、quality が 15 以下の「リード」を除く。36塩基以下の長さの「リード」を除く。</p>
-<h1 id="-cutadapt">アダプター配列の除去 cutadapt</h1>
-<p>概要: 入出力ファイルとして fastq/a だけでなく maq や bwa 形式にも対応したアダプタ/プライマー配列除去プログラム。gzip で圧縮されたファイルでもよい。アウトプットとインプットファイルの順序を間違えると大切なデータファイルが上書きされて消えてしまうので注意が必要。アダプタが3&#39;末端へライゲーションすることを想定している。illumina HiSeq/MiSeq/GA IIシリーズ, SOLiDシリーズの場合はそうなる。ただし、-b (--anywhere) を付けると、どの位置にあっても取り除く。アダプタ配列が部分的に存在する場合も取り除く。-e オプションでエラーレートを指定できる。Python で実装されている。Galaxy に組み込むときには、galaxy/ 以下に入れるだけ。MITライセンス。</p>
-<p>インストール:</p>
+</code></pre><p>adapter &#x914D;&#x5217;&#x306E;&#x9664;&#x53BB;&#x3092;&#x884C;&#x3046;&#x3002;adapter &#x914D;&#x5217;&#x306F;&#x3001;common_data/data/tagdust/solexa_paired_end_primers.fa &#x306B;FASTA&#x5F62;&#x5F0F;&#x3067;&#x8A18;&#x8F09;&#x3059;&#x308B;&#x3002;2&#x5869;&#x57FA;&#x306E;mismatch &#x3092;&#x8A31;&#x3057;&#x3066;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x914D;&#x5217;&#x3092;&#x691C;&#x7D22;&#x3059;&#x308B;&#x3002;&#x30EA;&#x30FC;&#x30C9;&#x5148;&#x982D;&#x306E; quality &lt; 3 &#x304B;&#x3001;N &#x3092;&#x6301;&#x3064;&#x300C;&#x914D;&#x5217;&#x300D;&#x3092;&#x9664;&#x304F;&#x3002;&#x30EA;&#x30FC;&#x30C9;&#x672B;&#x7AEF;&#x306E;  quality &lt; 3 &#x304B;&#x3001;N &#x3092;&#x6301;&#x3064;&#x300C;&#x914D;&#x5217;&#x300D;&#x3092;&#x9664;&#x304F;&#x3002;4&#x5869;&#x57FA;&#x305A;&#x3064;&#x914D;&#x5217;&#x3092;&#x305A;&#x3089;&#x3057;&#x306A;&#x304C;&#x3089; quality &#x306E;&#x5E73;&#x5747;&#x3092;&#x8A08;&#x7B97;&#x3057;&#x3001;quality &#x304C; 15 &#x4EE5;&#x4E0B;&#x306E;&#x300C;&#x30EA;&#x30FC;&#x30C9;&#x300D;&#x3092;&#x9664;&#x304F;&#x3002;36&#x5869;&#x57FA;&#x4EE5;&#x4E0B;&#x306E;&#x9577;&#x3055;&#x306E;&#x300C;&#x30EA;&#x30FC;&#x30C9;&#x300D;&#x3092;&#x9664;&#x304F;&#x3002;</p>
+<h1 id="&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x306E;&#x9664;&#x53BB;-cutadapt">&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x30FC;&#x914D;&#x5217;&#x306E;&#x9664;&#x53BB; cutadapt</h1>
+<p>&#x6982;&#x8981;: &#x5165;&#x51FA;&#x529B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3068;&#x3057;&#x3066; fastq/a &#x3060;&#x3051;&#x3067;&#x306A;&#x304F; maq &#x3084; bwa &#x5F62;&#x5F0F;&#x306B;&#x3082;&#x5BFE;&#x5FDC;&#x3057;&#x305F;&#x30A2;&#x30C0;&#x30D7;&#x30BF;/&#x30D7;&#x30E9;&#x30A4;&#x30DE;&#x30FC;&#x914D;&#x5217;&#x9664;&#x53BB;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3002;gzip &#x3067;&#x5727;&#x7E2E;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x3082;&#x3088;&#x3044;&#x3002;&#x30A2;&#x30A6;&#x30C8;&#x30D7;&#x30C3;&#x30C8;&#x3068;&#x30A4;&#x30F3;&#x30D7;&#x30C3;&#x30C8;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x9806;&#x5E8F;&#x3092;&#x9593;&#x9055;&#x3048;&#x308B;&#x3068;&#x5927;&#x5207;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x4E0A;&#x66F8;&#x304D;&#x3055;&#x308C;&#x3066;&#x6D88;&#x3048;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x304C;&#x5FC5;&#x8981;&#x3002;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x304C;3&apos;&#x672B;&#x7AEF;&#x3078;&#x30E9;&#x30A4;&#x30B2;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x60F3;&#x5B9A;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;illumina HiSeq/MiSeq/GA II&#x30B7;&#x30EA;&#x30FC;&#x30BA;, SOLiD&#x30B7;&#x30EA;&#x30FC;&#x30BA;&#x306E;&#x5834;&#x5408;&#x306F;&#x305D;&#x3046;&#x306A;&#x308B;&#x3002;&#x305F;&#x3060;&#x3057;&#x3001;-b (--anywhere) &#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x3001;&#x3069;&#x306E;&#x4F4D;&#x7F6E;&#x306B;&#x3042;&#x3063;&#x3066;&#x3082;&#x53D6;&#x308A;&#x9664;&#x304F;&#x3002;&#x30A2;&#x30C0;&#x30D7;&#x30BF;&#x914D;&#x5217;&#x304C;&#x90E8;&#x5206;&#x7684;&#x306B;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5834;&#x5408;&#x3082;&#x53D6;&#x308A;&#x9664;&#x304F;&#x3002;-e &#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x30A8;&#x30E9;&#x30FC;&#x30EC;&#x30FC;&#x30C8;&#x3092;&#x6307;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x3002;Python &#x3067;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;Galaxy &#x306B;&#x7D44;&#x307F;&#x8FBC;&#x3080;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;galaxy/ &#x4EE5;&#x4E0B;&#x306B;&#x5165;&#x308C;&#x308B;&#x3060;&#x3051;&#x3002;MIT&#x30E9;&#x30A4;&#x30BB;&#x30F3;&#x30B9;&#x3002;</p>
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;:</p>
 <pre><code>$ curl -O http://peak.telecommunity.com/dist/ez_setup.py
 $ sudo easy_install cut adapt
 $ rehash
-</code></pre><p>使いかた:</p>
+</code></pre><p>&#x4F7F;&#x3044;&#x304B;&#x305F;:</p>
 <pre><code>$ cutadapt -a ACACTCTTTCCCTACACGACGCTGTTCCATCT -o output.fastq.gz input.fastq.gz
 </code></pre>
                     
@@ -1194,20 +1082,24 @@ $ rehash
 <script src="../gitbook/app.js"></script>
 
     
-    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
     gitbook.start(config);
 });
 </script>

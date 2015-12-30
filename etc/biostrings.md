@@ -41,12 +41,12 @@ aa.revcomp
 
 x.freq <- alphabetFrequency(x, baseOnly = TRUE)
 is(x.freq)
-## [1] "integer"             "numeric"             "vector"             
-## [4] "data.frameRowLabels" "EnumerationValue"    "atomic"             
+## [1] "integer"             "numeric"             "vector"
+## [4] "data.frameRowLabels" "EnumerationValue"    "atomic"
 ## [7] "vectorORfactor"
 
 x.freq
-##     A     C     G     T other 
+##     A     C     G     T other
 ##     2     1     2     4     0
 ```
 
@@ -61,14 +61,14 @@ DNA_ALPHABET
 ##  [1] "A" "C" "G" "T" "M" "R" "W" "S" "Y" "K" "V" "H" "D" "B" "N" "-" "+"
 
 IUPAC_CODE_MAP
-##      A      C      G      T      M      R      W      S      Y      K 
-##    "A"    "C"    "G"    "T"   "AC"   "AG"   "AT"   "CG"   "CT"   "GT" 
-##      V      H      D      B      N 
+##      A      C      G      T      M      R      W      S      Y      K
+##    "A"    "C"    "G"    "T"   "AC"   "AG"   "AT"   "CG"   "CT"   "GT"
+##      V      H      D      B      N
 ##  "ACG"  "ACT"  "AGT"  "CGT" "ACGT"
 ```
 
 ## FASTA/FASTQ ファイルの読み込み
-multi FASTA 形式のテキストファイルを読み込みます。デモデータは、 
+multi FASTA 形式のテキストファイルを読み込みます。デモデータは、
 
 ```
 system.file("extdata", "someORF.fa", package="Biostrings")
@@ -79,12 +79,12 @@ system.file("extdata", "someORF.fa", package="Biostrings")
 file <- system.file("extdata", "someORF.fa", package = "Biostrings")
 seqs <- read.DNAStringSet(file, "fasta")
 is(seqs)
-## [1] "DNAStringSet" "XStringSet"   "XRawList"     "XVectorList" 
+## [1] "DNAStringSet" "XStringSet"   "XRawList"     "XVectorList"
 ## [5] "List"         "Vector"       "Annotated"
 
 seqs
 ##   A DNAStringSet instance of length 7
-##     width seq                                          names               
+##     width seq                                          names
 ## [1]  5573 ACTTGTAAATATATCTTTTAT...ATCGACCTTATTGTTGATAT YAL001C TFC3 SGDI...
 ## [2]  5825 TTCCAAGGCCGATGAATTCGA...AAATTTTTTTCTATTCTCTT YAL002W VPS8 SGDI...
 ## [3]  2987 CTTCATGTCAGCCTGCACTTC...TACTCATGTAGCTGCCTCAT YAL003W EFB1 SGDI...
@@ -122,21 +122,21 @@ library("BSgenome.Mmusculus.UCSC.mm10")
 
 Mmusculus
 ## Mouse genome
-## | 
+## |
 ## | organism: Mus musculus (Mouse)
 ## | provider: UCSC
 ## | provider version: mm10
 ## | release date: Dec. 2011
 ## | release name: Genome Reference Consortium GRCm38
-## | 
+## |
 ## | sequences (see '?seqnames'):
-## |   chr1                  chr2                  chr3                
-## |   chr4                  chr5                  chr6                
-## |   chr7                  chr8                  chr9                
-## |   chr10                 chr11                 chr12               
-## |   chr13                 chr14                 chr15               
-## |   chr16                 chr17                 chr18               
-## |   chr19                 chrX                  chrY                
+## |   chr1                  chr2                  chr3
+## |   chr4                  chr5                  chr6
+## |   chr7                  chr8                  chr9
+## |   chr10                 chr11                 chr12
+## |   chr13                 chr14                 chr15
+## |   chr16                 chr17                 chr18
+## |   chr19                 chrX                  chrY
 ## |   chrM                  chr1_GL456210_random  chr1_GL456211_random
 ## |   chr1_GL456212_random  chr1_GL456213_random  chr1_GL456221_random
 ## |   chr4_GL456216_random  chr4_GL456350_random  chr4_JH584292_random
@@ -144,15 +144,15 @@ Mmusculus
 ## |   chr5_GL456354_random  chr5_JH584296_random  chr5_JH584297_random
 ## |   chr5_JH584298_random  chr5_JH584299_random  chr7_GL456219_random
 ## |   chrX_GL456233_random  chrY_JH584300_random  chrY_JH584301_random
-## |   chrY_JH584302_random  chrY_JH584303_random  chrUn_GL456239      
-## |   chrUn_GL456359        chrUn_GL456360        chrUn_GL456366      
-## |   chrUn_GL456367        chrUn_GL456368        chrUn_GL456370      
-## |   chrUn_GL456372        chrUn_GL456378        chrUn_GL456379      
-## |   chrUn_GL456381        chrUn_GL456382        chrUn_GL456383      
-## |   chrUn_GL456385        chrUn_GL456387        chrUn_GL456389      
-## |   chrUn_GL456390        chrUn_GL456392        chrUn_GL456393      
-## |   chrUn_GL456394        chrUn_GL456396        chrUn_JH584304      
-## | 
+## |   chrY_JH584302_random  chrY_JH584303_random  chrUn_GL456239
+## |   chrUn_GL456359        chrUn_GL456360        chrUn_GL456366
+## |   chrUn_GL456367        chrUn_GL456368        chrUn_GL456370
+## |   chrUn_GL456372        chrUn_GL456378        chrUn_GL456379
+## |   chrUn_GL456381        chrUn_GL456382        chrUn_GL456383
+## |   chrUn_GL456385        chrUn_GL456387        chrUn_GL456389
+## |   chrUn_GL456390        chrUn_GL456392        chrUn_GL456393
+## |   chrUn_GL456394        chrUn_GL456396        chrUn_JH584304
+## |
 ## | (use the '$' or '[[' operator to access a given sequence)
 ```
 
@@ -161,13 +161,13 @@ is(Mmusculus)
 ## [1] "BSgenome"          "GenomeDescription"
 
 seqnames(Mmusculus)
-##  [1] "chr1"                 "chr2"                 "chr3"                
-##  [4] "chr4"                 "chr5"                 "chr6"                
-##  [7] "chr7"                 "chr8"                 "chr9"                
-## [10] "chr10"                "chr11"                "chr12"               
-## [13] "chr13"                "chr14"                "chr15"               
-## [16] "chr16"                "chr17"                "chr18"               
-## [19] "chr19"                "chrX"                 "chrY"                
+##  [1] "chr1"                 "chr2"                 "chr3"
+##  [4] "chr4"                 "chr5"                 "chr6"
+##  [7] "chr7"                 "chr8"                 "chr9"
+## [10] "chr10"                "chr11"                "chr12"
+## [13] "chr13"                "chr14"                "chr15"
+## [16] "chr16"                "chr17"                "chr18"
+## [19] "chr19"                "chrX"                 "chrY"
 ## [22] "chrM"                 "chr1_GL456210_random" "chr1_GL456211_random"
 ## [25] "chr1_GL456212_random" "chr1_GL456213_random" "chr1_GL456221_random"
 ## [28] "chr4_GL456216_random" "chr4_GL456350_random" "chr4_JH584292_random"
@@ -175,13 +175,13 @@ seqnames(Mmusculus)
 ## [34] "chr5_GL456354_random" "chr5_JH584296_random" "chr5_JH584297_random"
 ## [37] "chr5_JH584298_random" "chr5_JH584299_random" "chr7_GL456219_random"
 ## [40] "chrX_GL456233_random" "chrY_JH584300_random" "chrY_JH584301_random"
-## [43] "chrY_JH584302_random" "chrY_JH584303_random" "chrUn_GL456239"      
-## [46] "chrUn_GL456359"       "chrUn_GL456360"       "chrUn_GL456366"      
-## [49] "chrUn_GL456367"       "chrUn_GL456368"       "chrUn_GL456370"      
-## [52] "chrUn_GL456372"       "chrUn_GL456378"       "chrUn_GL456379"      
-## [55] "chrUn_GL456381"       "chrUn_GL456382"       "chrUn_GL456383"      
-## [58] "chrUn_GL456385"       "chrUn_GL456387"       "chrUn_GL456389"      
-## [61] "chrUn_GL456390"       "chrUn_GL456392"       "chrUn_GL456393"      
+## [43] "chrY_JH584302_random" "chrY_JH584303_random" "chrUn_GL456239"
+## [46] "chrUn_GL456359"       "chrUn_GL456360"       "chrUn_GL456366"
+## [49] "chrUn_GL456367"       "chrUn_GL456368"       "chrUn_GL456370"
+## [52] "chrUn_GL456372"       "chrUn_GL456378"       "chrUn_GL456379"
+## [55] "chrUn_GL456381"       "chrUn_GL456382"       "chrUn_GL456383"
+## [58] "chrUn_GL456385"       "chrUn_GL456387"       "chrUn_GL456389"
+## [61] "chrUn_GL456390"       "chrUn_GL456392"       "chrUn_GL456393"
 ## [64] "chrUn_GL456394"       "chrUn_GL456396"       "chrUn_JH584304"
 
 ## chr19 の情報を取り出す
@@ -205,7 +205,7 @@ countPattern("AAGAACAT", mm10.chr19)  # pattern をカウント
 ```
 mm10.chr19.match <- matchPattern("AAGAACAT", mm10.chr19, max.mismatch = 1)
 is(mm10.chr19.match)
-## [1] "XStringViews" "Views"        "List"         "Vector"      
+## [1] "XStringViews" "Views"        "List"         "Vector"
 ## [5] "Annotated"
 
 mm10.chr19.match
@@ -238,7 +238,7 @@ mm10.chr19.match
 ```
 mm10.chr19.dna <- as(mm10.chr19, "XStringViews")
 is(mm10.chr19.dna)
-## [1] "XStringViews" "Views"        "List"         "Vector"      
+## [1] "XStringViews" "Views"        "List"         "Vector"
 ## [5] "Annotated"
 
 mm10.chr19.dna

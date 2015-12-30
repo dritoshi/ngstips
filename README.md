@@ -34,7 +34,7 @@ Mac OS X あるいは Linux を推奨する。Windows + Cygwin でも可能な�
 コマンドとしては、git, wget, w3m を利用するのであらかじめインストールしておくとよい。Mac OS X の場合は、MacPorts をインストールし、
 __(homebrewに書き直す必要あり、RやGCC, Xcodeについても買く必要がある)__
 ```{sh}
-$ sudo port install wget 
+$ sudo port install wget
 $ sudo port install w3m
 $ sudo port install git-core
 ```
