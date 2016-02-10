@@ -1,5 +1,5 @@
 # Tips for NGS Data Analysis
-次世代DNAシーケンサーのデータ解析技術 (2013/02/01)
+[gitbook.com版] 次世代DNAシーケンサーのデータ解析技術 (2016/02/10)
 
 ## 著者について
 二階堂愛, Ph.D <dritoshi+ngstips@gmail.com>
