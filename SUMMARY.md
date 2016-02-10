@@ -3,7 +3,7 @@
 This is the summary of my book.
 
 * [はじめに](README.md)
-* [品質管理・前処理](qc/introduction.md)
+* [品質管理・前処理・ファイル操作](qc/introduction.md)
   * [FASTQ format](qc/fastq.md)
   * [FASTQCによるシーケンス実験の品質管理](qc/fastqc.md)
   * [余分な配列の除去](qc/removeseq.md)    
@@ -16,10 +16,16 @@ This is the summary of my book.
   * [DNA配列のGC%を計算する](qc/gc.md)
   * [異なるバージョンのゲノム座標を変換する: liftover](qc/liftover.md)
   * [異なる生物間のゲノム座標を変換する: liftover](qc/liftover_org.md)
+  * [samファイルを bam ファイルに変換する](qc/sam2bam.md)
+  * [bed file の重複領域をマージして行数を減らす](qc/reducebed.md)
+  * [bed file を染色体ごとのファイルへ分割する](qc/splitbedbychrom.md)  
 * RNA-Seq
   * [TopHatでRNA-seq のデータをリファレンスゲノムへマッピングする](RNA-Seq/tophat.md)
   * [Bowtie2でRNA-seqデータをトランスクリプトームへマッピングする](RNA-Seq/bowtie2_transcript.md)
+  * [RNA-seqのリードをHISAT2でゲノムへ高速にマッピングする](RNA-Seq/HISAT.md)
+  * [RNA-seqのリードをSTARでゲノムへ高速にマッピングする](RNA-Seq/STAR.md)  
   * [RNA-seq データからの rRNA除去](RNA-Seq/rrna.md)
+  * [RNA-Seqのトランスクリプトへのリードカバレッジを確認する](RNA-Seq/RNA-Seq_coverage.md)
   * [遺伝子発現量(FPKM)を計算する](RNA-Seq/cuffdiff.md)
   * [eXpress で発現量を計算する](RNA-Seq/express.md)  
   * [発現が有意に異なる遺伝子を探す](RNA-Seq/cummeRbund.md)
@@ -51,6 +57,7 @@ This is the summary of my book.
   * [NGSの情報の集めかた](etc/ngsinfo.md)
   * [大量の計算を高速化するには](etc/hpc.md)
   * [バイオインフォマティクス解析のためのSQLite入門](etc/sqlite.md)
+  * [UCSCとEnsemblの染色体番号の表記の違いについて](etc/notation_chr.md)
   * R/Bioconductor
     * [DNA配列をRで操作する](etc/biostrings.md)
     * [Rから Refseq や UniProt-KBの情報を高速に検索する](etc/genesearchr.md)
@@ -64,5 +71,5 @@ This is the summary of my book.
   * FPKMとは
   * ID変換: org.Mm.eg.db
   * EMBOSS
-  * Sun Grid Enging による分散計算 (SGEのオプションなど)    
+  * [ジョブスケジューラによるによる分散計算](etc/gridengine.md)
   * [執筆環境](etc/writingenv.md)

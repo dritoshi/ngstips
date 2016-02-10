@@ -1,18 +1,13 @@
 {
-
     "output": null,
     "generator": "site",
     "title": null,
     "description": null,
     "extension": null,
-
     "github": null,
     "githubHost": "https://github.com/",
-
     "plugins": [],
-
     "links": {
-
         "sidebar": {
             "Custom link name": "https://customlink.com"
         },
@@ -24,7 +19,6 @@
             "all": null
         }
     },
-
     "pdf": {
         "toc": false,
         "pageNumbers": true,

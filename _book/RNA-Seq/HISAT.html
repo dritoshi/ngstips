@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>ピーク内のゲノム配列をFASTA形式で得る | Tips for NGS Data Analysis</title>
+        <title>RNA-seqのリードをHISAT2でゲノムへ高速にマッピングする | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../ChIP-Seq/chipmotif.html" />
+    <link rel="next" href="../RNA-Seq/STAR.html" />
     
     
-    <link rel="prev" href="../ChIP-Seq/chipgo.html" />
+    <link rel="prev" href="../RNA-Seq/bowtie2_transcript.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="3.8"
-        data-chapter-title="ピーク内のゲノム配列をFASTA形式で得る"
-        data-filepath="ChIP-Seq/peakseq.md"
+        data-level="2.3"
+        data-chapter-title="RNA-seqのリードをHISAT2でゲノムへ高速にマッピングする"
+        data-filepath="RNA-Seq/HISAT.md"
         data-basepath=".."
         data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -373,7 +373,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="RNA-Seq/HISAT.html">
+        <li class="chapter active" data-level="2.3" data-path="RNA-Seq/HISAT.html">
             
                 
                     <a href="../RNA-Seq/HISAT.html">
@@ -580,7 +580,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.8" data-path="ChIP-Seq/peakseq.html">
+        <li class="chapter " data-level="3.8" data-path="ChIP-Seq/peakseq.html">
             
                 
                     <a href="../ChIP-Seq/peakseq.html">
@@ -1134,13 +1134,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;fasta&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;">&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;FASTA&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;</h1>
-<p>&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;DNA&#x914D;&#x5217;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308C;&#x3070;&#x3001;ChIP-qPCR&#x306E;&#x3088;&#x3046;&#x306A;&#x78BA;&#x8A8D;&#x5B9F;&#x9A13;&#x7528;&#x306E; PCR primer &#x3092;&#x8A2D;&#x8A08;&#x3057;&#x305F;&#x308A;&#x3001;&#x914D;&#x5217;&#x306B;&#x983B;&#x51FA;&#x3059;&#x308B;DNA motif&#x3092;&#x8A08;&#x7B97;&#x6A5F;&#x3067;&#x767A;&#x898B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;ChIPpeakAnno &#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x65B9;&#x6CD5;&#x3092;&#x8FF0;&#x3079;&#x308B;&#x3002;</p>
-<pre><code>&gt; library(&#x201C;ChIPpeakAnno&#x201D;)
-&gt; library(&quot;BSgenome.Mmusculus.UCSC.mm9&quot;)
-&gt; oct4.peaksWithSeqs &lt;- getAllPeakSequence(oct4.gr, upstream = 20, downstream = 20, genome = Mmusculus)
-&gt; write2FASTA(oct4.peaksWithSeqs, file=&quot;resutls/oct4.peaksWithSeqs.fa&quot;)
-</code></pre><p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B; oct4.peaksWithSeqs.fa &#x304C;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+                        <h1 id="rnaseq&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x3092;hisat2&#x3067;&#x30B2;&#x30CE;&#x30E0;&#x3078;&#x9AD8;&#x901F;&#x306B;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3059;&#x308B;">RNA-seq&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x3092;HISAT2&#x3067;&#x30B2;&#x30CE;&#x30E0;&#x3078;&#x9AD8;&#x901F;&#x306B;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3059;&#x308B;</h1>
+<p>HISAT2&#x306F;Tophat2&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x3057;&#x3066;&#x3044;&#x305F;&#x4EBA;&#x304C;&#x65B0;&#x3057;&#x304F;&#x958B;&#x767A;&#x3057;&#x305F;&#x3001;&#x9AD8;&#x901F;&#x3067;&#x30E1;&#x30E2;&#x30EA;&#x4F7F;&#x7528;&#x91CF;&#x306E;&#x5C11;&#x306A;&#x3044;RNA-seq&#x7528;&#x306E;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x30C4;&#x30FC;&#x30EB;&#x3002;
+&#x307E;&#x305A;&#x3001;&#x30EA;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;&#x30B2;&#x30CE;&#x30E0;&#x306E;HISAT&#x7528;&#x306E;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x3001;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x3002;</p>
+<pre><code>wget ftp://ftp.ccb.jhu.edu/pub/data/hisat_indexes/mm10_hisat.tar.gz
+tar zxvf mm10_hisat.tar.gz
+</code></pre><p>*.bt2&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;<code>mm10_hisa</code>&#x4EE5;&#x4E0B;&#x306B;&#x89E3;&#x51CD;&#x3055;&#x308C;&#x308B;&#x3002;</p>
+<p>&#x81EA;&#x5206;&#x3067;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x4F5C;&#x308B;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x901A;&#x308A;&#x3002;&#x4F8B;&#x306F; Ensembl&#x304B;&#x3089;&#x30CB;&#x30EF;&#x30C8;&#x30EA;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x3092;&#x843D;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30C7;&#x30C3;&#x30AF;&#x30B9;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+<pre><code>wget ftp://ftp.ensembl.org/pub/release-83/fasta/gallus_gallus/dna/Gallus_gallus.Galgal4.dna_rm.toplevel.fa.gz
+gzip -d Gallus_gallus.Galgal4.dna_rm.toplevel.fa.gz
+hisat2-build Gallus_gallus.Galgal4.dna_rm.toplevel.fa Gallus_gallus.Galgal4.dna_rm.toplevel
+</code></pre><p>&#x6B21;&#x306B; HISAT2 &#x3092;&#x7528;&#x610F;&#x3057;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x3059;&#x308B;&#x3002;</p>
+<pre><code>wget http://www.ccb.jhu.edu/software/hisat/downloads/hisat-0.1.6-beta-Linux_x86_64.zip
+unzip zxvf hisat-0.1.6-beta-Linux_x86_64.zip
+</code></pre><p>&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</p>
+<pre><code>hisat2 -p 12 -q -x gallus_gallus.Galgal4.dna_rm.toplevel -U &lt;(gzip -dc test.fastq.gz) -S test.sam
+</code></pre><h2 id="&#x3042;&#x3068;&#x306F;-samtools-&#x3067;-bam-&#x306B;&#x3059;&#x308C;&#x3070;&#x3088;&#x3044;&#x3002;">&#x3042;&#x3068;&#x306F; samtools &#x3067; bam &#x306B;&#x3059;&#x308C;&#x3070;&#x3088;&#x3044;&#x3002;</h2>
+<p>2015/02/08</p>
 
                     
                     </section>
@@ -1151,10 +1161,10 @@
         </div>
 
         
-        <a href="../ChIP-Seq/chipgo.html" class="navigation navigation-prev " aria-label="Previous page: Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる"><i class="fa fa-angle-left"></i></a>
+        <a href="../RNA-Seq/bowtie2_transcript.html" class="navigation navigation-prev " aria-label="Previous page: Bowtie2でRNA-seqデータをトランスクリプトームへマッピングする"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ChIP-Seq/chipmotif.html" class="navigation navigation-next " aria-label="Next page: ピーク内に頻出するDNAモチーフ配列を発見する"><i class="fa fa-angle-right"></i></a>
+        <a href="../RNA-Seq/STAR.html" class="navigation navigation-next " aria-label="Next page: RNA-seqのリードをSTARでゲノムへ高速にマッピングする"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

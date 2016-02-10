@@ -37,7 +37,7 @@
         
     
     
-    <link rel="next" href="../etc/writingenv.html" />
+    <link rel="next" href="../etc/gridengine.html" />
     
     
     <link rel="prev" href="../etc/scipy.html" />
@@ -49,11 +49,11 @@
         
         
     <div class="book"
-        data-level="5.5.2"
+        data-level="5.6.2"
         data-chapter-title="matplotlibをセットアップする"
         data-filepath="etc/matplotlib.md"
         data-basepath=".."
-        data-revision="Thu Dec 31 2015 01:21:12 GMT+0900 (JST)"
+        data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
     
 
@@ -98,7 +98,7 @@
                         
                             <b>1.</b>
                         
-                        品質管理・前処理
+                        品質管理・前処理・ファイル操作
                     </a>
             
             
@@ -285,6 +285,51 @@
             
         </li>
     
+        <li class="chapter " data-level="1.13" data-path="qc/sam2bam.html">
+            
+                
+                    <a href="../qc/sam2bam.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        samファイルを bam ファイルに変換する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="qc/reducebed.html">
+            
+                
+                    <a href="../qc/reducebed.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.14.</b>
+                        
+                        bed file の重複領域をマージして行数を減らす
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="qc/splitbedbychrom.html">
+            
+                
+                    <a href="../qc/splitbedbychrom.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.15.</b>
+                        
+                        bed file を染色体ごとのファイルへ分割する
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -328,14 +373,44 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="RNA-Seq/rrna.html">
+        <li class="chapter " data-level="2.3" data-path="RNA-Seq/HISAT.html">
+            
+                
+                    <a href="../RNA-Seq/HISAT.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        RNA-seqのリードをHISAT2でゲノムへ高速にマッピングする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="RNA-Seq/STAR.html">
+            
+                
+                    <a href="../RNA-Seq/STAR.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        RNA-seqのリードをSTARでゲノムへ高速にマッピングする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="RNA-Seq/rrna.html">
             
                 
                     <a href="../RNA-Seq/rrna.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.3.</b>
+                            <b>2.5.</b>
                         
                         RNA-seq データからの rRNA除去
                     </a>
@@ -343,14 +418,29 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="RNA-Seq/cuffdiff.html">
+        <li class="chapter " data-level="2.6" data-path="RNA-Seq/RNA-Seq_coverage.html">
+            
+                
+                    <a href="../RNA-Seq/RNA-Seq_coverage.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        RNA-Seqのトランスクリプトへのリードカバレッジを確認する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="RNA-Seq/cuffdiff.html">
             
                 
                     <a href="../RNA-Seq/cuffdiff.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.4.</b>
+                            <b>2.7.</b>
                         
                         遺伝子発現量(FPKM)を計算する
                     </a>
@@ -358,14 +448,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="RNA-Seq/express.html">
+        <li class="chapter " data-level="2.8" data-path="RNA-Seq/express.html">
             
                 
                     <a href="../RNA-Seq/express.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.8.</b>
                         
                         eXpress で発現量を計算する
                     </a>
@@ -373,14 +463,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="RNA-Seq/cummeRbund.html">
+        <li class="chapter " data-level="2.9" data-path="RNA-Seq/cummeRbund.html">
             
                 
                     <a href="../RNA-Seq/cummeRbund.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.9.</b>
                         
                         発現が有意に異なる遺伝子を探す
                     </a>
@@ -794,22 +884,37 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" >
+        <li class="chapter " data-level="5.4" data-path="etc/notation_chr.html">
             
-            <span><b>5.4.</b> R/Bioconductor</span>
+                
+                    <a href="../etc/notation_chr.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        UCSCとEnsemblの染色体番号の表記の違いについて
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" >
+            
+            <span><b>5.5.</b> R/Bioconductor</span>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.4.1" data-path="etc/biostrings.html">
+        <li class="chapter " data-level="5.5.1" data-path="etc/biostrings.html">
             
                 
                     <a href="../etc/biostrings.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.1.</b>
+                            <b>5.5.1.</b>
                         
                         DNA配列をRで操作する
                     </a>
@@ -817,14 +922,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.2" data-path="etc/genesearchr.html">
+        <li class="chapter " data-level="5.5.2" data-path="etc/genesearchr.html">
             
                 
                     <a href="../etc/genesearchr.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.2.</b>
+                            <b>5.5.2.</b>
                         
                         Rから Refseq や UniProt-KBの情報を高速に検索する
                     </a>
@@ -832,14 +937,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.3" data-path="etc/idconv.html">
+        <li class="chapter " data-level="5.5.3" data-path="etc/idconv.html">
             
                 
                     <a href="../etc/idconv.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.3.</b>
+                            <b>5.5.3.</b>
                         
                         R で EnsEMBL Gene ID を NCBI Entrez Gene ID へ変換する
                     </a>
@@ -847,14 +952,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.4" data-path="etc/biocjp.html">
+        <li class="chapter " data-level="5.5.4" data-path="etc/biocjp.html">
             
                 
                     <a href="../etc/biocjp.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.4.</b>
+                            <b>5.5.4.</b>
                         
                         Bioconductor 日本ミラーを利用する
                     </a>
@@ -862,14 +967,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.5" data-path="etc/biocsearch.html">
+        <li class="chapter " data-level="5.5.5" data-path="etc/biocsearch.html">
             
                 
                     <a href="../etc/biocsearch.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.5.</b>
+                            <b>5.5.5.</b>
                         
                         Bioconductor のソースコードを検索する
                     </a>
@@ -877,14 +982,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.6" data-path="etc/biocdevelonaws.html">
+        <li class="chapter " data-level="5.5.6" data-path="etc/biocdevelonaws.html">
             
                 
                     <a href="../etc/biocdevelonaws.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.6.</b>
+                            <b>5.5.6.</b>
                         
                         Vagrant を使って Bioconductor Devel の解析・開発環境をAWSに構築する
                     </a>
@@ -897,22 +1002,22 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" >
+        <li class="chapter " data-level="5.6" >
             
-            <span><b>5.5.</b> [Python環境の構築]</span>
+            <span><b>5.6.</b> [Python環境の構築]</span>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.5.1" data-path="etc/scipy.html">
+        <li class="chapter " data-level="5.6.1" data-path="etc/scipy.html">
             
                 
                     <a href="../etc/scipy.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.5.1.</b>
+                            <b>5.6.1.</b>
                         
                         SciPyをセットアップする
                     </a>
@@ -920,14 +1025,14 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.5.2" data-path="etc/matplotlib.html">
+        <li class="chapter active" data-level="5.6.2" data-path="etc/matplotlib.html">
             
                 
                     <a href="../etc/matplotlib.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.5.2.</b>
+                            <b>5.6.2.</b>
                         
                         matplotlibをセットアップする
                     </a>
@@ -940,42 +1045,50 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" >
-            
-            <span><b>5.6.</b> FPKMとは</span>
-            
-            
-        </li>
-    
         <li class="chapter " data-level="5.7" >
             
-            <span><b>5.7.</b> ID変換: org.Mm.eg.db</span>
+            <span><b>5.7.</b> FPKMとは</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.8" >
             
-            <span><b>5.8.</b> EMBOSS</span>
+            <span><b>5.8.</b> ID変換: org.Mm.eg.db</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.9" >
             
-            <span><b>5.9.</b> Sun Grid Enging による分散計算 (SGEのオプションなど)</span>
+            <span><b>5.9.</b> EMBOSS</span>
             
             
         </li>
     
-        <li class="chapter " data-level="5.10" data-path="etc/writingenv.html">
+        <li class="chapter " data-level="5.10" data-path="etc/gridengine.html">
+            
+                
+                    <a href="../etc/gridengine.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.10.</b>
+                        
+                        ジョブスケジューラによるによる分散計算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.11" data-path="etc/writingenv.html">
             
                 
                     <a href="../etc/writingenv.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.10.</b>
+                            <b>5.11.</b>
                         
                         執筆環境
                     </a>
@@ -1038,7 +1151,7 @@ python setup.py install
         <a href="../etc/scipy.html" class="navigation navigation-prev " aria-label="Previous page: SciPyをセットアップする"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../etc/writingenv.html" class="navigation navigation-next " aria-label="Next page: 執筆環境"><i class="fa fa-angle-right"></i></a>
+        <a href="../etc/gridengine.html" class="navigation navigation-next " aria-label="Next page: ジョブスケジューラによるによる分散計算"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

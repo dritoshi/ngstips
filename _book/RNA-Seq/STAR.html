@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>ピーク内のゲノム配列をFASTA形式で得る | Tips for NGS Data Analysis</title>
+        <title>RNA-seqのリードをSTARでゲノムへ高速にマッピングする | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../ChIP-Seq/chipmotif.html" />
+    <link rel="next" href="../RNA-Seq/rrna.html" />
     
     
-    <link rel="prev" href="../ChIP-Seq/chipgo.html" />
+    <link rel="prev" href="../RNA-Seq/HISAT.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="3.8"
-        data-chapter-title="ピーク内のゲノム配列をFASTA形式で得る"
-        data-filepath="ChIP-Seq/peakseq.md"
+        data-level="2.4"
+        data-chapter-title="RNA-seqのリードをSTARでゲノムへ高速にマッピングする"
+        data-filepath="RNA-Seq/STAR.md"
         data-basepath=".."
         data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -388,7 +388,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="RNA-Seq/STAR.html">
+        <li class="chapter active" data-level="2.4" data-path="RNA-Seq/STAR.html">
             
                 
                     <a href="../RNA-Seq/STAR.html">
@@ -580,7 +580,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.8" data-path="ChIP-Seq/peakseq.html">
+        <li class="chapter " data-level="3.8" data-path="ChIP-Seq/peakseq.html">
             
                 
                     <a href="../ChIP-Seq/peakseq.html">
@@ -1134,13 +1134,21 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;fasta&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;">&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;FASTA&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;</h1>
-<p>&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;DNA&#x914D;&#x5217;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308C;&#x3070;&#x3001;ChIP-qPCR&#x306E;&#x3088;&#x3046;&#x306A;&#x78BA;&#x8A8D;&#x5B9F;&#x9A13;&#x7528;&#x306E; PCR primer &#x3092;&#x8A2D;&#x8A08;&#x3057;&#x305F;&#x308A;&#x3001;&#x914D;&#x5217;&#x306B;&#x983B;&#x51FA;&#x3059;&#x308B;DNA motif&#x3092;&#x8A08;&#x7B97;&#x6A5F;&#x3067;&#x767A;&#x898B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;ChIPpeakAnno &#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x65B9;&#x6CD5;&#x3092;&#x8FF0;&#x3079;&#x308B;&#x3002;</p>
-<pre><code>&gt; library(&#x201C;ChIPpeakAnno&#x201D;)
-&gt; library(&quot;BSgenome.Mmusculus.UCSC.mm9&quot;)
-&gt; oct4.peaksWithSeqs &lt;- getAllPeakSequence(oct4.gr, upstream = 20, downstream = 20, genome = Mmusculus)
-&gt; write2FASTA(oct4.peaksWithSeqs, file=&quot;resutls/oct4.peaksWithSeqs.fa&quot;)
-</code></pre><p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B; oct4.peaksWithSeqs.fa &#x304C;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+                        <h1 id="rnaseq&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x3092;star&#x3067;&#x30B2;&#x30CE;&#x30E0;&#x3078;&#x9AD8;&#x901F;&#x306B;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3059;&#x308B;">RNA-seq&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x3092;STAR&#x3067;&#x30B2;&#x30CE;&#x30E0;&#x3078;&#x9AD8;&#x901F;&#x306B;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x3059;&#x308B;</h1>
+<p>STAR&#x306F;&#x9AD8;&#x901F;&#x306A;RNA-seq&#x7528;&#x306E;&#x30DE;&#x30C3;&#x30D4;&#x30F3;&#x30B0;&#x30C4;&#x30FC;&#x30EB;&#x3002;</p>
+<h2 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h2>
+<p>&#x307E;&#x305A;STAR&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3002;</p>
+<pre><code>git clone git@github.com:alexdobin/STAR.git
+make STAR
+</code></pre><p>&#x30DE;&#x30CB;&#x30E5;&#x30A2;&#x30EB;&#x306E;PDF&#x3082;&#x4F5C;&#x308A;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x3002;&#x305F;&#x3060;&#x3057; latexmk &#x304C;&#x3044;&#x308B;&#x3002;</p>
+<pre><code>make manual
+</code></pre><p>&#x30DE;&#x30CB;&#x30E5;&#x30A2;&#x30EB;&#x306E;PDF&#x306F;&#x4EE5;&#x4E0B;&#x306B;&#x843D;&#x3061;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x5FC5;&#x9808;&#x3067;&#x306F;&#x306A;&#x3044;&#x3002;</p>
+<ul>
+<li><a href="https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf" target="_blank">STAR Manual</a></li>
+</ul>
+<h2 id="&#x4F7F;&#x3044;&#x65B9;">&#x4F7F;&#x3044;&#x65B9;</h2>
+<h2 id="&#x3064;&#x3065;&#x304F;">(&#x3064;&#x3065;&#x304F;)</h2>
+<p>2015/01/10</p>
 
                     
                     </section>
@@ -1151,10 +1159,10 @@
         </div>
 
         
-        <a href="../ChIP-Seq/chipgo.html" class="navigation navigation-prev " aria-label="Previous page: Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる"><i class="fa fa-angle-left"></i></a>
+        <a href="../RNA-Seq/HISAT.html" class="navigation navigation-prev " aria-label="Previous page: RNA-seqのリードをHISAT2でゲノムへ高速にマッピングする"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ChIP-Seq/chipmotif.html" class="navigation navigation-next " aria-label="Next page: ピーク内に頻出するDNAモチーフ配列を発見する"><i class="fa fa-angle-right"></i></a>
+        <a href="../RNA-Seq/rrna.html" class="navigation navigation-next " aria-label="Next page: RNA-seq データからの rRNA除去"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

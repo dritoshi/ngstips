@@ -1,10 +1,14 @@
 # 執筆環境について
-MacOS X, homebrew, npm, [gitbook](https://github.com/GitbookIO/gitbook)
+環境は次のとおり
 
-以下 bluesky にて。
-## setup
+* MacOS X
+* homebrew
+* npm
+* [gitbook](https://github.com/GitbookIO/gitbook)
+
+## 環境のセットアップ
 ```
-cd /Users/itoshi/Projects/test
+cd [DIR]
 brew install npm
 npm install gitbook -g
 ```
@@ -14,32 +18,39 @@ npm install gitbook -g
 sudo ln -s /Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert /usr/bin/ebook-convert
 ```
 
-## writing
-gitbook を起動する
+## 執筆
+最初だけ。
 ```
-gitbook serve ./repository
+mkdir [dir]
+gitbook init
+```
+
+gitbook を起動する。
+```
+gitbook serve [dir]
 ```
 
 http://localhost:4000/ へアクセス。エディタを起動する。
 
 ```
-subl ./repository
+subl [dir]
 ```
-./repository 以下に md を作っていく。
+```dir``` 以下に md を作っていく。
 ファイルを保存するとブラウザ側でコンテンツが自動的にリロードされる。
-コンテンツを編集したら、SUMMARY.md を編集して、新規追加したコンテンツを
-追加する。
 
-## ファイルを作る
-### PDf
+コンテンツを編集したら、___SUMMARY.md を編集___して、新規追加したコンテンツを
+追加する。これをやらないと、buildしたときにHTMLへ変換されないので注意!
+
+## 書籍ファイルの作成
+### PDF
 ```
-gitbook pdf ./repository
-open  ./repository/book.pdf
+gitbook pdf [dir]
+open [dir]/book.pdf
 ```
 ### ePub
 ```
-gitbook epub ./repository
-open  ./repository/book.epub
+gitbook epub [dir]
+open [dir]/book.epub
 ```
 
 # ToDo

@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>ピーク内のゲノム配列をFASTA形式で得る | Tips for NGS Data Analysis</title>
+        <title>RNA-Seqのトランスクリプトへのリードカバレッジを確認する | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../ChIP-Seq/chipmotif.html" />
+    <link rel="next" href="../RNA-Seq/cuffdiff.html" />
     
     
-    <link rel="prev" href="../ChIP-Seq/chipgo.html" />
+    <link rel="prev" href="../RNA-Seq/rrna.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="3.8"
-        data-chapter-title="ピーク内のゲノム配列をFASTA形式で得る"
-        data-filepath="ChIP-Seq/peakseq.md"
+        data-level="2.6"
+        data-chapter-title="RNA-Seqのトランスクリプトへのリードカバレッジを確認する"
+        data-filepath="RNA-Seq/RNA-Seq_coverage.md"
         data-basepath=".."
         data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -418,7 +418,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="RNA-Seq/RNA-Seq_coverage.html">
+        <li class="chapter active" data-level="2.6" data-path="RNA-Seq/RNA-Seq_coverage.html">
             
                 
                     <a href="../RNA-Seq/RNA-Seq_coverage.html">
@@ -580,7 +580,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.8" data-path="ChIP-Seq/peakseq.html">
+        <li class="chapter " data-level="3.8" data-path="ChIP-Seq/peakseq.html">
             
                 
                     <a href="../ChIP-Seq/peakseq.html">
@@ -1134,14 +1134,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;fasta&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;">&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;FASTA&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;</h1>
-<p>&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;DNA&#x914D;&#x5217;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308C;&#x3070;&#x3001;ChIP-qPCR&#x306E;&#x3088;&#x3046;&#x306A;&#x78BA;&#x8A8D;&#x5B9F;&#x9A13;&#x7528;&#x306E; PCR primer &#x3092;&#x8A2D;&#x8A08;&#x3057;&#x305F;&#x308A;&#x3001;&#x914D;&#x5217;&#x306B;&#x983B;&#x51FA;&#x3059;&#x308B;DNA motif&#x3092;&#x8A08;&#x7B97;&#x6A5F;&#x3067;&#x767A;&#x898B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;ChIPpeakAnno &#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x65B9;&#x6CD5;&#x3092;&#x8FF0;&#x3079;&#x308B;&#x3002;</p>
-<pre><code>&gt; library(&#x201C;ChIPpeakAnno&#x201D;)
-&gt; library(&quot;BSgenome.Mmusculus.UCSC.mm9&quot;)
-&gt; oct4.peaksWithSeqs &lt;- getAllPeakSequence(oct4.gr, upstream = 20, downstream = 20, genome = Mmusculus)
-&gt; write2FASTA(oct4.peaksWithSeqs, file=&quot;resutls/oct4.peaksWithSeqs.fa&quot;)
-</code></pre><p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B; oct4.peaksWithSeqs.fa &#x304C;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+                        <h1 id="rnaseq&#x306E;&#x30C8;&#x30E9;&#x30F3;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3078;&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;">RNA-Seq&#x306E;&#x30C8;&#x30E9;&#x30F3;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3078;&#x306E;&#x30EA;&#x30FC;&#x30C9;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;</h1>
+<p>RNA-Seq &#x306E;&#x30EA;&#x30FC;&#x30C9;&#x304C;&#x3069;&#x306E;&#x3050;&#x3089;&#x3044;&#x907A;&#x4F1D;&#x5B50;&#x9818;&#x57DF;&#x3092;&#x30AB;&#x30D0;&#x30FC;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;RNA-Seq&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x4F5C;&#x6210;&#x3067;&#x3001;&#x3069;&#x306E;&#x7A0B;&#x5EA6;&#x307E;&#x3067;RNA&#x304C;&#x6349;&#x3048;&#x3089;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x308B;&#x3002;
+&#x30B7;&#x30FC;&#x30B1;&#x30F3;&#x30B9;&#x3084;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x4F5C;&#x6210;&#x306E;&#x539F;&#x7406;&#x3084;&#x5B9F;&#x9A13;&#x4E0A;&#x306E;&#x554F;&#x984C;&#x306B;&#x3088;&#x308A;3&apos;&#x3084;5&apos;&#x7AEF;&#x306B;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x304C;&#x504F;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308B;&#x3002;
+Whole Transcript Amplification (WTA) &#x3092;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x30AA;&#x30EA;&#x30B4;dT&#x306B;&#x3088;&#x308B;&#x9006;&#x8EE2;&#x5199;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x3044;&#x308C;&#x3070;
+3&apos;&#x7AEF;&#x306B;&#x504F;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308B;&#x3002;&#x5B9F;&#x9A13;&#x306E;&#x72D9;&#x3044;&#x901A;&#x308A;&#x306E;&#x30AB;&#x30D0;&#x30EC;&#x30C3;&#x30B8;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x5B9F;&#x9A13;&#x306E;&#x8CEA;&#x3092;
+&#x5224;&#x65AD;&#x3067;&#x304D;&#x308B;&#x3002;</p>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;RSeQC &#x306E; genebody_coverage.py &#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;</p>
+<h2 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;</h2>
+<pre><code>$ tar zxvf RSeQC-2.4.tar.gz
+$ cd RSeQC-VERSION
+$ python setup.py install
 
+$ export PYTHONPATH=/home/user/lib/python2.7/site-packages:$PYTHONPATH
+$ export PATH=/home/user/bin:$PATH
+</code></pre><p>&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x6210;&#x529F;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+<pre><code>$ python -c &apos;from qcmodule import SAM&apos;
+</code></pre>
                     
                     </section>
                 
@@ -1151,10 +1160,10 @@
         </div>
 
         
-        <a href="../ChIP-Seq/chipgo.html" class="navigation navigation-prev " aria-label="Previous page: Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる"><i class="fa fa-angle-left"></i></a>
+        <a href="../RNA-Seq/rrna.html" class="navigation navigation-prev " aria-label="Previous page: RNA-seq データからの rRNA除去"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ChIP-Seq/chipmotif.html" class="navigation navigation-next " aria-label="Next page: ピーク内に頻出するDNAモチーフ配列を発見する"><i class="fa fa-angle-right"></i></a>
+        <a href="../RNA-Seq/cuffdiff.html" class="navigation navigation-next " aria-label="Next page: 遺伝子発現量(FPKM)を計算する"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

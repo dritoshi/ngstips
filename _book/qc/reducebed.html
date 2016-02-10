@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>ピーク内のゲノム配列をFASTA形式で得る | Tips for NGS Data Analysis</title>
+        <title>bed file の重複領域をマージして行数を減らす | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../ChIP-Seq/chipmotif.html" />
+    <link rel="next" href="../qc/splitbedbychrom.html" />
     
     
-    <link rel="prev" href="../ChIP-Seq/chipgo.html" />
+    <link rel="prev" href="../qc/sam2bam.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="3.8"
-        data-chapter-title="ピーク内のゲノム配列をFASTA形式で得る"
-        data-filepath="ChIP-Seq/peakseq.md"
+        data-level="1.14"
+        data-chapter-title="bed file の重複領域をマージして行数を減らす"
+        data-filepath="qc/reducebed.md"
         data-basepath=".."
         data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -300,7 +300,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="qc/reducebed.html">
+        <li class="chapter active" data-level="1.14" data-path="qc/reducebed.html">
             
                 
                     <a href="../qc/reducebed.html">
@@ -580,7 +580,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.8" data-path="ChIP-Seq/peakseq.html">
+        <li class="chapter " data-level="3.8" data-path="ChIP-Seq/peakseq.html">
             
                 
                     <a href="../ChIP-Seq/peakseq.html">
@@ -1134,13 +1134,15 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;fasta&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;">&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;FASTA&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;</h1>
-<p>&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;DNA&#x914D;&#x5217;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308C;&#x3070;&#x3001;ChIP-qPCR&#x306E;&#x3088;&#x3046;&#x306A;&#x78BA;&#x8A8D;&#x5B9F;&#x9A13;&#x7528;&#x306E; PCR primer &#x3092;&#x8A2D;&#x8A08;&#x3057;&#x305F;&#x308A;&#x3001;&#x914D;&#x5217;&#x306B;&#x983B;&#x51FA;&#x3059;&#x308B;DNA motif&#x3092;&#x8A08;&#x7B97;&#x6A5F;&#x3067;&#x767A;&#x898B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;ChIPpeakAnno &#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x65B9;&#x6CD5;&#x3092;&#x8FF0;&#x3079;&#x308B;&#x3002;</p>
-<pre><code>&gt; library(&#x201C;ChIPpeakAnno&#x201D;)
-&gt; library(&quot;BSgenome.Mmusculus.UCSC.mm9&quot;)
-&gt; oct4.peaksWithSeqs &lt;- getAllPeakSequence(oct4.gr, upstream = 20, downstream = 20, genome = Mmusculus)
-&gt; write2FASTA(oct4.peaksWithSeqs, file=&quot;resutls/oct4.peaksWithSeqs.fa&quot;)
-</code></pre><p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B; oct4.peaksWithSeqs.fa &#x304C;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+                        <h1 id="bed-file-&#x306E;&#x91CD;&#x8907;&#x9818;&#x57DF;&#x3092;&#x30DE;&#x30FC;&#x30B8;&#x3057;&#x3066;&#x884C;&#x6570;&#x3092;&#x6E1B;&#x3089;&#x3059;">bed file &#x306E;&#x91CD;&#x8907;&#x9818;&#x57DF;&#x3092;&#x30DE;&#x30FC;&#x30B8;&#x3057;&#x3066;&#x884C;&#x6570;&#x3092;&#x6E1B;&#x3089;&#x3059;</h1>
+<pre><code class="lang-R"><span class="hljs-keyword">library</span>(<span class="hljs-string">&quot;GenomicRanges&quot;</span>)
+
+x &lt;- read.table(hoge.bed)
+y &lt;- GRanges(seqname = Rle(x[,<span class="hljs-number">1</span>]), ranges = IRanges(start = x[,<span class="hljs-number">2</span>], end = x[,<span class="hljs-number">3</span>]))
+y.reduced &lt;- reduce(y)
+
+write.table(file = <span class="hljs-string">&quot;hoge.bed&quot;</span>, as.data.frame(y.reduced)[,<span class="hljs-number">1</span>:<span class="hljs-number">3</span>], quote = <span class="hljs-literal">F</span>, sep = <span class="hljs-string">&quot;\t&quot;</span>, row.names=<span class="hljs-literal">F</span>, col.names=<span class="hljs-literal">F</span>)
+</code></pre>
 
                     
                     </section>
@@ -1151,10 +1153,10 @@
         </div>
 
         
-        <a href="../ChIP-Seq/chipgo.html" class="navigation navigation-prev " aria-label="Previous page: Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる"><i class="fa fa-angle-left"></i></a>
+        <a href="../qc/sam2bam.html" class="navigation navigation-prev " aria-label="Previous page: samファイルを bam ファイルに変換する"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ChIP-Seq/chipmotif.html" class="navigation navigation-next " aria-label="Next page: ピーク内に頻出するDNAモチーフ配列を発見する"><i class="fa fa-angle-right"></i></a>
+        <a href="../qc/splitbedbychrom.html" class="navigation navigation-next " aria-label="Next page: bed file を染色体ごとのファイルへ分割する"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

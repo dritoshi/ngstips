@@ -38,7 +38,7 @@
     
     
     
-    <link rel="prev" href="../etc/matplotlib.html" />
+    <link rel="prev" href="../etc/gridengine.html" />
     
 
         
@@ -47,11 +47,11 @@
         
         
     <div class="book"
-        data-level="5.10"
+        data-level="5.11"
         data-chapter-title="執筆環境"
         data-filepath="etc/writingenv.md"
         data-basepath=".."
-        data-revision="Thu Dec 31 2015 01:21:12 GMT+0900 (JST)"
+        data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
     
 
@@ -96,7 +96,7 @@
                         
                             <b>1.</b>
                         
-                        品質管理・前処理
+                        品質管理・前処理・ファイル操作
                     </a>
             
             
@@ -283,6 +283,51 @@
             
         </li>
     
+        <li class="chapter " data-level="1.13" data-path="qc/sam2bam.html">
+            
+                
+                    <a href="../qc/sam2bam.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        samファイルを bam ファイルに変換する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="qc/reducebed.html">
+            
+                
+                    <a href="../qc/reducebed.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.14.</b>
+                        
+                        bed file の重複領域をマージして行数を減らす
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="qc/splitbedbychrom.html">
+            
+                
+                    <a href="../qc/splitbedbychrom.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.15.</b>
+                        
+                        bed file を染色体ごとのファイルへ分割する
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -326,14 +371,44 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="RNA-Seq/rrna.html">
+        <li class="chapter " data-level="2.3" data-path="RNA-Seq/HISAT.html">
+            
+                
+                    <a href="../RNA-Seq/HISAT.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        RNA-seqのリードをHISAT2でゲノムへ高速にマッピングする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="RNA-Seq/STAR.html">
+            
+                
+                    <a href="../RNA-Seq/STAR.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        RNA-seqのリードをSTARでゲノムへ高速にマッピングする
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="RNA-Seq/rrna.html">
             
                 
                     <a href="../RNA-Seq/rrna.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.3.</b>
+                            <b>2.5.</b>
                         
                         RNA-seq データからの rRNA除去
                     </a>
@@ -341,14 +416,29 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="RNA-Seq/cuffdiff.html">
+        <li class="chapter " data-level="2.6" data-path="RNA-Seq/RNA-Seq_coverage.html">
+            
+                
+                    <a href="../RNA-Seq/RNA-Seq_coverage.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        RNA-Seqのトランスクリプトへのリードカバレッジを確認する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="RNA-Seq/cuffdiff.html">
             
                 
                     <a href="../RNA-Seq/cuffdiff.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.4.</b>
+                            <b>2.7.</b>
                         
                         遺伝子発現量(FPKM)を計算する
                     </a>
@@ -356,14 +446,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="RNA-Seq/express.html">
+        <li class="chapter " data-level="2.8" data-path="RNA-Seq/express.html">
             
                 
                     <a href="../RNA-Seq/express.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.5.</b>
+                            <b>2.8.</b>
                         
                         eXpress で発現量を計算する
                     </a>
@@ -371,14 +461,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="RNA-Seq/cummeRbund.html">
+        <li class="chapter " data-level="2.9" data-path="RNA-Seq/cummeRbund.html">
             
                 
                     <a href="../RNA-Seq/cummeRbund.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>2.6.</b>
+                            <b>2.9.</b>
                         
                         発現が有意に異なる遺伝子を探す
                     </a>
@@ -792,22 +882,37 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" >
+        <li class="chapter " data-level="5.4" data-path="etc/notation_chr.html">
             
-            <span><b>5.4.</b> R/Bioconductor</span>
+                
+                    <a href="../etc/notation_chr.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        UCSCとEnsemblの染色体番号の表記の違いについて
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" >
+            
+            <span><b>5.5.</b> R/Bioconductor</span>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.4.1" data-path="etc/biostrings.html">
+        <li class="chapter " data-level="5.5.1" data-path="etc/biostrings.html">
             
                 
                     <a href="../etc/biostrings.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.1.</b>
+                            <b>5.5.1.</b>
                         
                         DNA配列をRで操作する
                     </a>
@@ -815,14 +920,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.2" data-path="etc/genesearchr.html">
+        <li class="chapter " data-level="5.5.2" data-path="etc/genesearchr.html">
             
                 
                     <a href="../etc/genesearchr.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.2.</b>
+                            <b>5.5.2.</b>
                         
                         Rから Refseq や UniProt-KBの情報を高速に検索する
                     </a>
@@ -830,14 +935,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.3" data-path="etc/idconv.html">
+        <li class="chapter " data-level="5.5.3" data-path="etc/idconv.html">
             
                 
                     <a href="../etc/idconv.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.3.</b>
+                            <b>5.5.3.</b>
                         
                         R で EnsEMBL Gene ID を NCBI Entrez Gene ID へ変換する
                     </a>
@@ -845,14 +950,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.4" data-path="etc/biocjp.html">
+        <li class="chapter " data-level="5.5.4" data-path="etc/biocjp.html">
             
                 
                     <a href="../etc/biocjp.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.4.</b>
+                            <b>5.5.4.</b>
                         
                         Bioconductor 日本ミラーを利用する
                     </a>
@@ -860,14 +965,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.5" data-path="etc/biocsearch.html">
+        <li class="chapter " data-level="5.5.5" data-path="etc/biocsearch.html">
             
                 
                     <a href="../etc/biocsearch.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.5.</b>
+                            <b>5.5.5.</b>
                         
                         Bioconductor のソースコードを検索する
                     </a>
@@ -875,14 +980,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4.6" data-path="etc/biocdevelonaws.html">
+        <li class="chapter " data-level="5.5.6" data-path="etc/biocdevelonaws.html">
             
                 
                     <a href="../etc/biocdevelonaws.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.4.6.</b>
+                            <b>5.5.6.</b>
                         
                         Vagrant を使って Bioconductor Devel の解析・開発環境をAWSに構築する
                     </a>
@@ -895,22 +1000,22 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" >
+        <li class="chapter " data-level="5.6" >
             
-            <span><b>5.5.</b> [Python環境の構築]</span>
+            <span><b>5.6.</b> [Python環境の構築]</span>
             
             
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.5.1" data-path="etc/scipy.html">
+        <li class="chapter " data-level="5.6.1" data-path="etc/scipy.html">
             
                 
                     <a href="../etc/scipy.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.5.1.</b>
+                            <b>5.6.1.</b>
                         
                         SciPyをセットアップする
                     </a>
@@ -918,14 +1023,14 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5.2" data-path="etc/matplotlib.html">
+        <li class="chapter " data-level="5.6.2" data-path="etc/matplotlib.html">
             
                 
                     <a href="../etc/matplotlib.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.5.2.</b>
+                            <b>5.6.2.</b>
                         
                         matplotlibをセットアップする
                     </a>
@@ -938,42 +1043,50 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" >
-            
-            <span><b>5.6.</b> FPKMとは</span>
-            
-            
-        </li>
-    
         <li class="chapter " data-level="5.7" >
             
-            <span><b>5.7.</b> ID変換: org.Mm.eg.db</span>
+            <span><b>5.7.</b> FPKMとは</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.8" >
             
-            <span><b>5.8.</b> EMBOSS</span>
+            <span><b>5.8.</b> ID変換: org.Mm.eg.db</span>
             
             
         </li>
     
         <li class="chapter " data-level="5.9" >
             
-            <span><b>5.9.</b> Sun Grid Enging による分散計算 (SGEのオプションなど)</span>
+            <span><b>5.9.</b> EMBOSS</span>
             
             
         </li>
     
-        <li class="chapter active" data-level="5.10" data-path="etc/writingenv.html">
+        <li class="chapter " data-level="5.10" data-path="etc/gridengine.html">
+            
+                
+                    <a href="../etc/gridengine.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.10.</b>
+                        
+                        ジョブスケジューラによるによる分散計算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.11" data-path="etc/writingenv.html">
             
                 
                     <a href="../etc/writingenv.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>5.10.</b>
+                            <b>5.11.</b>
                         
                         執筆環境
                     </a>
@@ -1020,30 +1133,38 @@
                     <section class="normal" id="section-">
                     
                         <h1 id="&#x57F7;&#x7B46;&#x74B0;&#x5883;&#x306B;&#x3064;&#x3044;&#x3066;">&#x57F7;&#x7B46;&#x74B0;&#x5883;&#x306B;&#x3064;&#x3044;&#x3066;</h1>
-<p>MacOS X, homebrew, npm, <a href="https://github.com/GitbookIO/gitbook" target="_blank">gitbook</a></p>
-<p>&#x4EE5;&#x4E0B; bluesky &#x306B;&#x3066;&#x3002;</p>
-<h2 id="setup">setup</h2>
-<pre><code>cd /Users/itoshi/Projects/test
+<p>&#x74B0;&#x5883;&#x306F;&#x6B21;&#x306E;&#x3068;&#x304A;&#x308A;</p>
+<ul>
+<li>MacOS X</li>
+<li>homebrew</li>
+<li>npm</li>
+<li><a href="https://github.com/GitbookIO/gitbook" target="_blank">gitbook</a></li>
+</ul>
+<h2 id="&#x74B0;&#x5883;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;">&#x74B0;&#x5883;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;</h2>
+<pre><code>cd [DIR]
 brew install npm
 npm install gitbook -g
 </code></pre><p><a href="http://calibre-ebook.com/" target="_blank">Calibre</a>&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3002;</p>
 <pre><code>sudo ln -s /Applications/calibre.app/Contents/console.app/Contents/MacOS/ebook-convert /usr/bin/ebook-convert
-</code></pre><h2 id="writing">writing</h2>
-<p>gitbook &#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;</p>
-<pre><code>gitbook serve ./repository
+</code></pre><h2 id="&#x57F7;&#x7B46;">&#x57F7;&#x7B46;</h2>
+<p>&#x6700;&#x521D;&#x3060;&#x3051;&#x3002;</p>
+<pre><code>mkdir [dir]
+gitbook init
+</code></pre><p>gitbook &#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x3002;</p>
+<pre><code>gitbook serve [dir]
 </code></pre><p><a href="http://localhost:4000/" target="_blank">http://localhost:4000/</a> &#x3078;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3002;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x3002;</p>
-<pre><code>subl ./repository
-</code></pre><p>./repository &#x4EE5;&#x4E0B;&#x306B; md &#x3092;&#x4F5C;&#x3063;&#x3066;&#x3044;&#x304F;&#x3002;
-&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x3068;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x5074;&#x3067;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x304C;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30EA;&#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x308B;&#x3002;
-&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3092;&#x7DE8;&#x96C6;&#x3057;&#x305F;&#x3089;&#x3001;SUMMARY.md &#x3092;&#x7DE8;&#x96C6;&#x3057;&#x3066;&#x3001;&#x65B0;&#x898F;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3092;
-&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3002;</p>
-<h2 id="&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x308B;">&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x308B;</h2>
-<h3 id="pdf">PDf</h3>
-<pre><code>gitbook pdf ./repository
-open  ./repository/book.pdf
+<pre><code>subl [dir]
+</code></pre><p><code>dir</code> &#x4EE5;&#x4E0B;&#x306B; md &#x3092;&#x4F5C;&#x3063;&#x3066;&#x3044;&#x304F;&#x3002;
+&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4FDD;&#x5B58;&#x3059;&#x308B;&#x3068;&#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x5074;&#x3067;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x304C;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30EA;&#x30ED;&#x30FC;&#x30C9;&#x3055;&#x308C;&#x308B;&#x3002;</p>
+<p>&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3092;&#x7DE8;&#x96C6;&#x3057;&#x305F;&#x3089;&#x3001;<strong><em>SUMMARY.md &#x3092;&#x7DE8;&#x96C6;</em></strong>&#x3057;&#x3066;&#x3001;&#x65B0;&#x898F;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x3092;
+&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3002;&#x3053;&#x308C;&#x3092;&#x3084;&#x3089;&#x306A;&#x3044;&#x3068;&#x3001;build&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;HTML&#x3078;&#x5909;&#x63DB;&#x3055;&#x308C;&#x306A;&#x3044;&#x306E;&#x3067;&#x6CE8;&#x610F;!</p>
+<h2 id="&#x66F8;&#x7C4D;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x4F5C;&#x6210;">&#x66F8;&#x7C4D;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x4F5C;&#x6210;</h2>
+<h3 id="pdf">PDF</h3>
+<pre><code>gitbook pdf [dir]
+open [dir]/book.pdf
 </code></pre><h3 id="epub">ePub</h3>
-<pre><code>gitbook epub ./repository
-open  ./repository/book.epub
+<pre><code>gitbook epub [dir]
+open [dir]/book.epub
 </code></pre><h1 id="todo">ToDo</h1>
 <ul>
 <li>rmd &#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B; plugin &#x3092;&#x66F8;&#x304F;</li>
@@ -1058,7 +1179,7 @@ open  ./repository/book.epub
         </div>
 
         
-        <a href="../etc/matplotlib.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: matplotlibをセットアップする"><i class="fa fa-angle-left"></i></a>
+        <a href="../etc/gridengine.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: ジョブスケジューラによるによる分散計算"><i class="fa fa-angle-left"></i></a>
         
         
     </div>

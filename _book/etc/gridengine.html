@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>ピーク内のゲノム配列をFASTA形式で得る | Tips for NGS Data Analysis</title>
+        <title>ジョブスケジューラによるによる分散計算 | Tips for NGS Data Analysis</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../ChIP-Seq/chipmotif.html" />
+    <link rel="next" href="../etc/writingenv.html" />
     
     
-    <link rel="prev" href="../ChIP-Seq/chipgo.html" />
+    <link rel="prev" href="../etc/matplotlib.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="3.8"
-        data-chapter-title="ピーク内のゲノム配列をFASTA形式で得る"
-        data-filepath="ChIP-Seq/peakseq.md"
+        data-level="5.10"
+        data-chapter-title="ジョブスケジューラによるによる分散計算"
+        data-filepath="etc/gridengine.md"
         data-basepath=".."
         data-revision="Wed Feb 10 2016 16:45:05 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -580,7 +580,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.8" data-path="ChIP-Seq/peakseq.html">
+        <li class="chapter " data-level="3.8" data-path="ChIP-Seq/peakseq.html">
             
                 
                     <a href="../ChIP-Seq/peakseq.html">
@@ -1066,7 +1066,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.10" data-path="etc/gridengine.html">
+        <li class="chapter active" data-level="5.10" data-path="etc/gridengine.html">
             
                 
                     <a href="../etc/gridengine.html">
@@ -1134,13 +1134,84 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;fasta&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;">&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;&#x30B2;&#x30CE;&#x30E0;&#x914D;&#x5217;&#x3092;FASTA&#x5F62;&#x5F0F;&#x3067;&#x5F97;&#x308B;</h1>
-<p>&#x30D4;&#x30FC;&#x30AF;&#x5185;&#x306E;DNA&#x914D;&#x5217;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308C;&#x3070;&#x3001;ChIP-qPCR&#x306E;&#x3088;&#x3046;&#x306A;&#x78BA;&#x8A8D;&#x5B9F;&#x9A13;&#x7528;&#x306E; PCR primer &#x3092;&#x8A2D;&#x8A08;&#x3057;&#x305F;&#x308A;&#x3001;&#x914D;&#x5217;&#x306B;&#x983B;&#x51FA;&#x3059;&#x308B;DNA motif&#x3092;&#x8A08;&#x7B97;&#x6A5F;&#x3067;&#x767A;&#x898B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;ChIPpeakAnno &#x3092;&#x5229;&#x7528;&#x3057;&#x305F;&#x65B9;&#x6CD5;&#x3092;&#x8FF0;&#x3079;&#x308B;&#x3002;</p>
-<pre><code>&gt; library(&#x201C;ChIPpeakAnno&#x201D;)
-&gt; library(&quot;BSgenome.Mmusculus.UCSC.mm9&quot;)
-&gt; oct4.peaksWithSeqs &lt;- getAllPeakSequence(oct4.gr, upstream = 20, downstream = 20, genome = Mmusculus)
-&gt; write2FASTA(oct4.peaksWithSeqs, file=&quot;resutls/oct4.peaksWithSeqs.fa&quot;)
-</code></pre><p>&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B; oct4.peaksWithSeqs.fa &#x304C;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+                        <h1 id="&#x30B8;&#x30E7;&#x30D6;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306B;&#x3088;&#x308B;&#x5206;&#x6563;&#x8A08;&#x7B97;">&#x30B8;&#x30E7;&#x30D6;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306B;&#x3088;&#x308B;&#x5206;&#x6563;&#x8A08;&#x7B97;</h1>
+<p>&#x5171;&#x7528;&#x8A08;&#x7B97;&#x6A5F;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x5927;&#x91CF;&#x306E;&#x8A08;&#x7B97;&#x3092;&#x5206;&#x6563;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3084;&#x8003;&#x3048;&#x304B;&#x305F;&#x3001;&#x30DE;&#x30CA;&#x30FC;&#x306A;&#x3069;&#x3092;&#x8FF0;&#x3079;&#x308B;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;Sun Grid Engine&#x7CFB;&#x306E;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x3092;&#x60F3;&#x5B9A;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;</p>
+<h2 id="&#x30D7;&#x30E9;&#x30A4;&#x30AA;&#x30EA;&#x30C6;&#x30A3;&#x306E;&#x8003;&#x3048;&#x304B;&#x305F;">&#x30D7;&#x30E9;&#x30A4;&#x30AA;&#x30EA;&#x30C6;&#x30A3;&#x306E;&#x8003;&#x3048;&#x304B;&#x305F;</h2>
+<ol>
+<li>&#x5171;&#x6709;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3067;&#x3042;&#x308B;&#x30B9;&#x30D1;&#x30B3;&#x30F3;&#x3092;&#x3001;&#x81EA;&#x5206;&#x3068;&#x4ED6;&#x4EBA;&#x304C;&#x3068;&#x3082;&#x306B;&#x6700;&#x5927;&#x9650;&#x5B9F;&#x884C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x914D;&#x616E;&#x3059;&#x308B;</li>
+<li>&#x901F;&#x304F;&#x8A08;&#x7B97;&#x304C;&#x7D42;&#x308F;&#x308B;&#x4EBA;&#x3092;&#x512A;&#x5148;&#x3059;&#x308B; (1&#x6642;&#x9593;&#x3067;&#x7D42;&#x308F;&#x308B;&#x8A08;&#x7B97;&#x3092;&#x6570;&#x9031;&#x9593;&#x5F85;&#x305F;&#x3055;&#x308C;&#x308B;&#x306E;&#x306F;&#x7406;&#x4E0D;&#x5C3D;)</li>
+<li>&#x8A08;&#x7B97;&#x6642;&#x9593;&#x304C;&#x9577;&#x3044;&#x30B8;&#x30E7;&#x30D6;&#x306F;&#x30D7;&#x30E9;&#x30A4;&#x30AA;&#x30EA;&#x30C6;&#x30A3;&#x3092;&#x4E0B;&#x3052;&#x308B; (&#x6570;&#x9031;&#x9593;&#x304B;&#x304B;&#x308B;&#x8A08;&#x7B97;&#x3092;&#x3055;&#x3089;&#x306B;1&#x6642;&#x9593;&#x5F85;&#x3064;&#x3053;&#x3068;&#x306F;&#x53EF;&#x80FD;)</li>
+</ol>
+<h2 id="&#x30BF;&#x30D6;&#x30FC;">&#x30BF;&#x30D6;&#x30FC;</h2>
+<ul>
+<li>&#x30B8;&#x30E7;&#x30D6;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x3092;&#x4F7F;&#x308F;&#x305A;&#x306B;&#x8A08;&#x7B97;&#x3059;&#x308B; (&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x7BA1;&#x7406;&#x3055;&#x308C;&#x306A;&#x304F;&#x306A;&#x308B;&#x306E;&#x3067;&#x516C;&#x5E73;&#x306B;&#x8A08;&#x7B97;&#x6A5F;&#x3092;&#x5229;&#x7528;&#x3067;&#x304D;&#x306A;&#x3044;)</li>
+<li>&#x30D8;&#x30C3;&#x30C9;&#x3001;&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x30CE;&#x30FC;&#x30C9;&#x3067;&#x8A08;&#x7B97;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B; (&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x306B;&#x652F;&#x969C;&#x304C;&#x3067;&#x308B;)</li>
+</ul>
+<h2 id="&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x64CD;&#x4F5C;">&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x64CD;&#x4F5C;</h2>
+<h3 id="&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x6295;&#x5165;">&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x6295;&#x5165;</h3>
+<pre><code>qsub -q [&#x30AD;&#x30E5;&#x30FC;&#x540D;] -p [&#x30D7;&#x30E9;&#x30A4;&#x30AA;&#x30EA;&#x30C6;&#x30A3;] -l [&#x30E1;&#x30E2;&#x30EA;&#x91CF;] [&#x30B7;&#x30A7;&#x30EB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x540D;]
+</code></pre><p>&#x30D7;&#x30E9;&#x30A4;&#x30AA;&#x30EA;&#x30C6;&#x30A3;&#x306F;-1023&#x304B;&#x3089;1024&#x3067;&#x3042;&#x308A;&#x5C0F;&#x3055;&#x3044;&#x307B;&#x3046;&#x304C;&#x30D7;&#x30E9;&#x30A4;&#x30AA;&#x30EA;&#x30C6;&#x30A3;&#x304C;&#x4F4E;&#x3044;&#x3002;0&#x304C;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3002;
+root&#x3067;&#x306A;&#x3044;&#x9650;&#x308A;&#x30D7;&#x30E9;&#x30AA;&#x30EA;&#x30C6;&#x30A3;&#x304C;&#x4E0B;&#x3052;&#x308B;&#x3053;&#x3068;&#x3057;&#x304B;&#x3067;&#x304D;&#x306A;&#x3044;&#x3002;</p>
+<p>&#x30E1;&#x30E2;&#x30EA;&#x91CF;&#x306F; <code>-l h_vmem=24G</code> &#x3068;&#x3059;&#x308C;&#x3070;24GB&#x3092;&#x78BA;&#x4FDD;&#x3067;&#x304D;&#x308B;&#x3002;</p>
+<h3 id="&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x78BA;&#x8A8D;">&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x78BA;&#x8A8D;</h3>
+<pre><code>qstat -u [&#x30E6;&#x30FC;&#x30B6;&#x540D;] # &#x30E6;&#x30FC;&#x30B6;&#x306E;&#x30AD;&#x30E5;&#x30FC;&#x306E;&#x307F;&#x3092;&#x78BA;&#x8A8D;
+qstat -u &quot;*&quot;       # &#x5168;&#x54E1;&#x306E;&#x30AD;&#x30E5;&#x30FC;&#x3092;&#x78BA;&#x8A8D;
+</code></pre><h3 id="&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x5F37;&#x5236;&#x7D42;&#x4E86;&#x3059;&#x308B;">&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x5F37;&#x5236;&#x7D42;&#x4E86;&#x3059;&#x308B;</h3>
+<pre><code>qdel -u [&#x30E6;&#x30FC;&#x30B6;&#x540D;]  # &#x30E6;&#x30FC;&#x30B6;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x3059;&#x3079;&#x3066;&#x505C;&#x6B62;&#x3055;&#x305B;&#x308B;
+qdel [&#x30B8;&#x30E7;&#x30D6;ID]     # &#x6307;&#x5B9A;&#x3057;&#x305F;&#x30B8;&#x30E7;&#x30D6;ID&#x3060;&#x3051;&#x505C;&#x6B62;&#x3055;&#x305B;&#x308B;
+</code></pre><h3 id="&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x8A73;&#x7D30;&#x60C5;&#x5831;&#x3092;&#x5F97;&#x308B;">&#x30B8;&#x30E7;&#x30D6;&#x306E;&#x8A73;&#x7D30;&#x60C5;&#x5831;&#x3092;&#x5F97;&#x308B;</h3>
+<pre><code>qacct -j [&#x30B8;&#x30E7;&#x30D6;ID]
+</code></pre><p>&#x30E1;&#x30E2;&#x30EA;&#x3084;CPU&#x306E;&#x4F7F;&#x7528;&#x72B6;&#x6CC1;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x308B;&#x3002;</p>
+<h3 id="&#x4E00;&#x5EA6;&#x306B;&#x5927;&#x91CF;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;">&#x4E00;&#x5EA6;&#x306B;&#x5927;&#x91CF;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;</h3>
+<p>&#x30A2;&#x30EC;&#x30A4;&#x30B8;&#x30E7;&#x30D6;&#x306B;&#x3064;&#x3044;&#x3066;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x3002;</p>
+<h3 id="&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x30FB;cpu&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;">&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x30FB;CPU&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;</h3>
+<p>&#x78BA;&#x4FDD;&#x3059;&#x308B;CPU&#x30B3;&#x30A2;&#x6570; = &#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x3066;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;&#x3002;</p>
+<p>&#x6295;&#x5165;&#x3059;&#x308B;&#x30B7;&#x30A7;&#x30EB;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306B;&#x4EE5;&#x4E0B;&#x306E;&#x884C;&#x3092;&#x5165;&#x308C;&#x308B;&#x3002;</p>
+<pre><code>#$ -l nc=[slot&#x6570;]
+</code></pre><p>&#x5B9F;&#x884C;&#x3059;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3067;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x30B3;&#x30A2;&#x6570;&#x3068;&#x540C;&#x3058;&#x6570;&#x5B57;&#x3092;[&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x6570;]&#x306B;&#x5165;&#x308C;&#x308B;&#x3002;</p>
+<p>&#x6700;&#x8FD1;&#x591A;&#x304F;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x3067;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x3002;&#x306A;&#x308B;&#x3079;&#x304F;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;
+&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x3092;&#x7D30;&#x304B;&#x304F;&#x3057;&#x3059;&#x304E;&#x308B;&#x3068;&#x3001;&#x4ED6;&#x306E;&#x8907;&#x6570;&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x30DE;&#x30EB;&#x30C1;&#x30B3;&#x30A2;&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x3001;
+&#x5165;&#x308A;&#x306B;&#x304F;&#x304F;&#x306A;&#x308B;&#x306E;&#x3067;&#x3001;&#x306A;&#x308B;&#x3079;&#x304F;&#x907F;&#x3051;&#x308B;&#x3002;</p>
+<p>&#x4F8B;&#x3048;&#x3070;8 cores CPU&#x304C;2&#x3064;&#x3042;&#x308B;&#x30CE;&#x30FC;&#x30C9;&#x306F;16&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x4F7F;&#x3048;&#x308B;&#x3002;
+&#x3042;&#x308B;&#x4EBA;&#x304C;1&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x5927;&#x91CF;&#x306B;&#x6295;&#x3052;&#x3066;&#x3057;&#x307E;&#x3046;&#x3068;&#x3001;1&#x30B8;&#x30E7;&#x30D6;&#x304C;
+&#x7D42;&#x4E86;&#x3057;&#x3066;&#x3082;&#x3001;&#x3059;&#x3050;&#x307E;&#x305F;1&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x5165;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x3002;
+&#x3053;&#x308C;&#x3060;&#x3068;&#x3001;&#x307B;&#x304B;&#x306E;8&#x30B3;&#x30A2;&#x3084;16&#x30B3;&#x30A2;&#x306E;&#x4EBA;&#x304C;&#x3044;&#x3064;&#x307E;&#x3067;&#x5165;&#x3063;&#x3066;&#x3044;&#x304B;&#x306A;&#x3044;&#x3002;</p>
+<h2 id="&#x30AD;&#x30E5;&#x30FC;&#x306E;&#x78BA;&#x8A8D;">&#x30AD;&#x30E5;&#x30FC;&#x306E;&#x78BA;&#x8A8D;</h2>
+<h3 id="&#x30AD;&#x30E5;&#x30FC;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x5F97;&#x308B;">&#x30AD;&#x30E5;&#x30FC;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x5F97;&#x308B;</h3>
+<pre><code>qconf -sql
+</code></pre><h2 id="&#x30CE;&#x30FC;&#x30C9;&#x306E;&#x8A2D;&#x5B9A;&#x30FB;&#x78BA;&#x8A8D;">&#x30CE;&#x30FC;&#x30C9;&#x306E;&#x8A2D;&#x5B9A;&#x30FB;&#x78BA;&#x8A8D;</h2>
+<h3 id="&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x6295;&#x5165;&#x3067;&#x304D;&#x308B;&#x30DB;&#x30B9;&#x30C8;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x5F97;&#x308B;">&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x6295;&#x5165;&#x3067;&#x304D;&#x308B;&#x30DB;&#x30B9;&#x30C8;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x5F97;&#x308B;</h3>
+<pre><code>qconf -ss
+</code></pre><h3 id="&#x30CE;&#x30FC;&#x30C8;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;">&#x30CE;&#x30FC;&#x30C8;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;</h3>
+<pre><code>qconf -as [&#x30CE;&#x30FC;&#x30C9;&#x540D;]
+</code></pre><h2 id="&#x305D;&#x306E;&#x307B;&#x304B;&#x306E;&#x30B3;&#x30C4;">&#x305D;&#x306E;&#x307B;&#x304B;&#x306E;&#x30B3;&#x30C4;</h2>
+<h3 id="&#x30E1;&#x30E2;&#x30EA;&#x304C;&#x8DB3;&#x308A;&#x306A;&#x304F;&#x3066;os&#x306B;&#x30B8;&#x30E7;&#x30D6;&#x3092;kill&#x3055;&#x308C;&#x308B;">&#x30E1;&#x30E2;&#x30EA;&#x304C;&#x8DB3;&#x308A;&#x306A;&#x304F;&#x3066;OS&#x306B;&#x30B8;&#x30E7;&#x30D6;&#x3092;kill&#x3055;&#x308C;&#x308B;</h3>
+<p>Linux&#x306B;&#x306F;OMM killer&#x3068;&#x3044;&#x3046;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x3001;&#x30E1;&#x30E2;&#x30EA;&#x3092;&#x4F7F;&#x3044;&#x3059;&#x304E;&#x3066;OS&#x306B;&#x5F71;&#x97FF;&#x304C;&#x51FA;&#x3066;&#x3057;&#x307E;&#x3046;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;
+kill &#x3059;&#x308B;&#x3002;OMM killer &#x304C;kill&#x3057;&#x305D;&#x3046;&#x306A;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x304C;&#x4EE5;&#x4E0B;&#x3067;&#x898B;&#x308C;&#x308B;&#x3002;</p>
+<pre><code>dstat --top-oom
+</code></pre><p>&#x3053;&#x306E;&#x30B9;&#x30B3;&#x30A2;&#x306F;&#x3001;<code>/proc/[PID]/oom_score</code> &#x4EE5;&#x4E0B;&#x306B;&#x5165;&#x3063;&#x3066;&#x3044;&#x308B;</p>
+<p><code>/proc/[PID]/oom_adj</code> &#x306B;&#x306F;&#x512A;&#x5148;&#x9806;&#x4F4D;&#x3092;&#x5165;&#x529B;&#x3067;&#x304D;&#x308B;&#x3002;-16&#x304B;&#x3089;+15&#x306E;&#x5024;&#x3067;&#x5C0F;&#x3055;&#x3044;&#x3068;&#x512A;&#x5148;&#x9806;&#x4F4D;&#x306F;&#x4F4E;&#x3044;&#x3002;</p>
+<p>OMM Killer &#x3067;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x304C; kill &#x3055;&#x308C;&#x305F;&#x304B;&#x3069;&#x3046;&#x304B;&#x306F;&#x3001;syslog &#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3002;</p>
+<pre><code>sudo grep Killed /var/log/messages
+</code></pre><h3 id="io&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x6E1B;&#x3089;&#x3057;&#x3066;&#x9AD8;&#x901F;&#x306B;&#x8A08;&#x7B97;&#x3059;&#x308B;">IO&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x6E1B;&#x3089;&#x3057;&#x3066;&#x9AD8;&#x901F;&#x306B;&#x8A08;&#x7B97;&#x3059;&#x308B;</h3>
+<ul>
+<li>IO&#x3092;&#x6E1B;&#x3089;&#x3059;&#x305F;&#x3081;&#x306B;&#x3001;&#x306A;&#x308B;&#x3079;&#x304F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x66F8;&#x304D;&#x51FA;&#x3055;&#x305A;&#x306B;&#x3001;&#x30D1;&#x30A4;&#x30D7;&#x3092;&#x5229;&#x7528;&#x3059;&#x308B;&#x3002;</li>
+<li>&#x5727;&#x7E2E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x89E3;&#x51CD;&#x3057;&#x3066;&#x304B;&#x3089;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x3001;&#x305D;&#x306E;&#x5206;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x304C;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308B;&#x3002;&#x89E3;&#x51CD;&#x3057;&#x305F;&#x7D50;&#x679C;&#x3092;&#x30D1;&#x30A4;&#x30D7;&#x3067;&#x53D7;&#x3051;&#x3068;&#x308A;&#x306A;&#x304C;&#x3089;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;IO&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3084;&#x30B9;&#x30C8;&#x30EC;&#x30FC;&#x30B8;&#x91CF;&#x3092;&#x524A;&#x6E1B;&#x3067;&#x304D;&#x308B;&#x3002;</li>
+<li>&#x307B;&#x3068;&#x3093;&#x3069;&#x306E;&#x5834;&#x5408; fastq &#x304C; gzip &#x3084; bz2 &#x306E;&#x307E;&#x307E;&#x3001;&#x6700;&#x5F8C;&#x307E;&#x3067;&#x8A08;&#x7B97;&#x304C;&#x53EF;&#x80FD;&#x3002;</li>
+</ul>
+<h3 id="&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x6B63;&#x5E38;&#x306B;&#x7D42;&#x308F;&#x3063;&#x305F;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3084;&#x3059;&#x304F;&#x3059;&#x308B;">&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x6B63;&#x5E38;&#x306B;&#x7D42;&#x308F;&#x3063;&#x305F;&#x304B;&#x78BA;&#x8A8D;&#x3057;&#x3084;&#x3059;&#x304F;&#x3059;&#x308B;</h3>
+<p>&#x7D50;&#x679C;&#x4E00;&#x6642;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x51FA;&#x529B;&#x3057;&#x3001;&#x6700;&#x5F8C;&#x306B;&#x30EA;&#x30CD;&#x30FC;&#x30E0;&#x3059;&#x308B;&#x3002;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x540D;&#x3092;&#x307F;&#x3066;&#x6700;&#x5F8C;&#x307E;&#x3067;&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x305F;&#x304B;&#x5224;&#x65AD;&#x3057;&#x3084;&#x3059;&#x304F;&#x306A;&#x308B;&#x3002;</p>
+<h3 id="&#x305D;&#x306E;&#x4ED6;">&#x305D;&#x306E;&#x4ED6;</h3>
+<ul>
+<li>&#x89B3;&#x5149;&#x30D0;&#x30B9;&#x65B9;&#x5F0F;&#x3067;&#x30B8;&#x30E7;&#x30D6;&#x540D;&#x3092;&#x3064;&#x3051;&#x308B;&#x3002;&#x901A;&#x3057;&#x756A;&#x53F7;&#x3092;&#x3064;&#x3051;&#x308B;&#x3068;&#x304D;&#x306F;&#x964D;&#x9806;&#x306B;&#x3059;&#x308B;&#x3002;&#x6295;&#x5165;&#x3057;&#x305F;&#x30B8;&#x30E7;&#x30D6;&#x304C;&#x3044;&#x304F;&#x3064;&#x307E;&#x3067;&#x7D42;&#x308F;&#x3063;&#x305F;&#x304B;&#x304C;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x3002;</li>
+<li>DNA&#x914D;&#x5217;&#x89E3;&#x6790;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3067;&#x306F;&#x3001;&#x30E1;&#x30E2;&#x30EA;&#x4F7F;&#x7528;&#x91CF;&#x3092;&#x63A8;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x96E3;&#x3057;&#x3044;&#x5834;&#x5408;&#x304C;&#x591A;&#x3044;&#x3002;&#x5927;&#x91CF;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6295;&#x5165;&#x3059;&#x308B;&#x524D;&#x306B;&#x3001;&#x8A66;&#x3057;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x307F;&#x308B;&#x306E;&#x3082;&#x3088;&#x3044;&#x3002;</li>
+<li>&#x3069;&#x3046;&#x3057;&#x3066;&#x3082;&#x5927;&#x91CF;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3084;&#x3001;&#x9577;&#x671F;&#x306E;&#x30B8;&#x30E7;&#x30D6;&#x3092;&#x6D41;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306F;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x306E;&#x30E1;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x30EA;&#x30B9;&#x30C8;&#x3084;&#x30C1;&#x30E3;&#x30C3;&#x30C8;&#x306A;&#x3069;&#x3067;&#x76F8;&#x8AC7;&#x3059;&#x308B;&#x3002;&#x30B8;&#x30E7;&#x30D6;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x306F;&#x6280;&#x8853;&#x7684;&#x306B;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x7BA1;&#x7406;&#x3067;&#x304D;&#x308B;&#x304C;&#x3001;&#x7814;&#x7A76;&#x306E;&#x512A;&#x5148;&#x9806;&#x4F4D;&#x3084;&#x7DE0;&#x5207;&#x306A;&#x3069;&#x30BD;&#x30FC;&#x30B7;&#x30E3;&#x30EB;&#x306A;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x7BA1;&#x7406;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;&#x30BD;&#x30FC;&#x30B7;&#x30E3;&#x30EB;&#x306A;&#x89E3;&#x6C7A;&#x304C;&#x6642;&#x306B;&#x306F;&#x5FC5;&#x8981;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3059;&#x308B;&#x3053;&#x3068;&#x3002;</li>
+</ul>
+<h2 id="&#x30EA;&#x30F3;&#x30AF;&#x96C6;">&#x30EA;&#x30F3;&#x30AF;&#x96C6;</h2>
+<ul>
+<li><a href="http://sc.ddbj.nig.ac.jp/index.php/ja-howtouse" target="_blank">DDBJ&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x5229;&#x7528;&#x65B9;&#x6CD5;</a></li>
+<li><a href="https://supcom.hgc.jp/japanese/lead.html" target="_blank">&#x6771;&#x5927;&#x533B;&#x79D1;&#x7814;&#x30D2;&#x30C8;&#x30B2;&#x30CE;&#x30E0;&#x89E3;&#x6790;&#x30BB;&#x30F3;&#x30BF;&#x30FC;&#x30B9;&#x30D1;&#x30B3;&#x30F3;&#x5229;&#x7528;&#x6848;&#x5185;</a></li>
+</ul>
 
                     
                     </section>
@@ -1151,10 +1222,10 @@
         </div>
 
         
-        <a href="../ChIP-Seq/chipgo.html" class="navigation navigation-prev " aria-label="Previous page: Peakを近傍に持つ遺伝子によく観察されるGene Ontolgyを挙げる"><i class="fa fa-angle-left"></i></a>
+        <a href="../etc/matplotlib.html" class="navigation navigation-prev " aria-label="Previous page: matplotlibをセットアップする"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../ChIP-Seq/chipmotif.html" class="navigation navigation-next " aria-label="Next page: ピーク内に頻出するDNAモチーフ配列を発見する"><i class="fa fa-angle-right"></i></a>
+        <a href="../etc/writingenv.html" class="navigation navigation-next " aria-label="Next page: 執筆環境"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
